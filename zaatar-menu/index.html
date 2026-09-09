@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>مطعم وكافيه الخواجة — القائمة الرقمية</title>
+<meta name="theme-color" content="#0d0d0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Amiri:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --paper:#161513;
+    --paper-2:#1d1b18;
+    --ink:#f3ede2;
+    --ink-soft:#b9ad98;
+    --gold:#cda34a;
+    --gold-bright:#e8c674;
+    --gold-dim:#8a6f34;
+    --line:#2c2822;
+    --radius:18px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.45);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);}
+  body{
+    font-family:'Cairo',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:48px;
+    max-width:560px;
+    margin:0 auto;
+    min-height:100vh;
+    box-shadow:0 0 60px rgba(0,0,0,0.6);
+    position:relative;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    background-image:
+      linear-gradient(180deg, rgba(11,11,12,0.55) 0%, rgba(11,11,12,0.88) 75%, var(--bg) 100%),
+      url('img/img_01.jpg');
+    background-size:cover;
+    background-position:center;
+    color:var(--ink);
+    padding:34px 22px 26px;
+    border-bottom:1px solid var(--gold-dim);
+  }
+  .hero-brand{
+    text-align:center;
+  }
+  .hero-mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:56px;height:56px;
+    border-radius:50%;
+    border:1.5px solid var(--gold);
+    font-size:24px;
+    margin-bottom:12px;
+    background:rgba(205,163,74,0.08);
+  }
+  .brand-name{
+    font-family:'Amiri', serif;
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    margin:0;
+    color:var(--gold-bright);
+    text-shadow:0 2px 12px rgba(0,0,0,0.5);
+  }
+  .brand-tagline{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:6px 0 0;
+    letter-spacing:0.3px;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:18px;
+    font-size:12.5px;
+    flex-wrap:wrap;
+  }
+  .meta-pill{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(205,163,74,0.35);
+    padding:7px 13px;
+    border-radius:999px;
+    color:var(--ink);
+    backdrop-filter:blur(3px);
+  }
+  .meta-pill a{ color:var(--ink); text-decoration:none; }
+
+  /* ============ TABS + SEARCH ============ */
+  .tabs-wrap{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(11,11,12,0.92);
+    backdrop-filter:blur(10px);
+    padding:12px 0 10px;
+    border-bottom:1px solid var(--line);
+  }
+  .search-wrap{ padding:2px 18px 10px; }
+  .search-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:11px 15px;
+  }
+  .search-box input{
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:14px;
+    width:100%;
+    font-family:inherit;
+    color:var(--ink);
+  }
+  .search-box input::placeholder{ color:var(--ink-soft); }
+  .search-box svg{ flex:0 0 auto; opacity:0.5; color:var(--gold); }
+
+  .tabs{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:0 18px;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;
+    padding:9px 17px;
+    border-radius:999px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--ink-soft);
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all 0.15s ease;
+  }
+  .tab.active{
+    background:linear-gradient(135deg, var(--gold-bright), var(--gold-dim));
+    border-color:var(--gold);
+    color:#181410;
+    box-shadow:0 4px 14px rgba(205,163,74,0.35);
+  }
+
+  /* ============ MENU ============ */
+  .category-section{ padding:22px 18px 4px; scroll-margin-top:130px; }
+  .category-title{
+    font-size:19px;
+    font-weight:800;
+    margin:0 0 14px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:var(--gold-bright);
+  }
+  .category-count{
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--bg);
+    background:var(--gold);
+    padding:2px 9px;
+    border-radius:999px;
+    margin-inline-start:auto;
+  }
+
+  .item-card{
+    display:flex;
+    gap:14px;
+    background:linear-gradient(160deg, var(--paper), var(--paper-2));
+    border-radius:var(--radius);
+    padding:12px;
+    margin:12px 0;
+    box-shadow:var(--shadow);
+    align-items:center;
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .item-img{
+    width:88px;
+    height:88px;
+    border-radius:14px;
+    object-fit:cover;
+    flex:0 0 auto;
+    border:1px solid rgba(205,163,74,0.25);
+  }
+  .item-body{ flex:1; min-width:0; }
+  .item-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .item-name{
+    font-size:16px;
+    font-weight:700;
+    margin:0;
+    line-height:1.35;
+    color:var(--ink);
+  }
+  .popular-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:3px;
+    font-size:10.5px;
+    font-weight:700;
+    color:#1a1508;
+    background:var(--gold-bright);
+    padding:2px 8px;
+    border-radius:999px;
+    margin-top:5px;
+  }
+  .offer-badge{
+    background:linear-gradient(135deg, #ff8a3d, #e8543a);
+    color:#fff;
+  }
+  .item-desc{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin:5px 0 0;
+    line-height:1.5;
+  }
+  .item-price{
+    font-size:16px;
+    font-weight:800;
+    color:var(--gold-bright);
+    white-space:nowrap;
+    flex:0 0 auto;
+  }
+
+  .empty-state{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--ink-soft);
+  }
+
+  .footer{
+    text-align:center;
+    padding:34px 20px 14px;
+    color:var(--ink-soft);
+    font-size:12.5px;
+    border-top:1px solid var(--line);
+    margin-top:24px;
+  }
+  .footer strong{ color:var(--gold-bright); font-size:15px; display:block; margin-bottom:6px; font-family:'Amiri',serif; }
+  .footer .qr-note{ margin-top:10px; opacity:0.7; font-size:11px; }
+
+  html[dir="ltr"] body{ font-family:'Inter','Cairo',sans-serif; }
+  html[dir="ltr"] .brand-name{ font-family:'Georgia','Amiri',serif; }
+  .lang-toggle{
+    position:absolute;
+    top:18px;
+    inset-inline-end:18px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(205,163,74,0.45);
+    color:var(--gold-bright);
+    border-radius:999px;
+    padding:7px 15px;
+    font-size:12.5px;
+    font-weight:700;
+    cursor:pointer;
+    backdrop-filter:blur(3px);
+    white-space:nowrap;
+    font-family:inherit;
+  }
+  .lang-toggle:active{ transform:scale(0.95); }
+  .currency-toggle{
+    position:absolute;
+    top:64px;
+    inset-inline-end:18px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(205,163,74,0.45);
+    color:var(--gold-bright);
+    border-radius:999px;
+    padding:7px 15px;
+    font-size:12.5px;
+    font-weight:700;
+    cursor:pointer;
+    backdrop-filter:blur(3px);
+    white-space:nowrap;
+    font-family:inherit;
+  }
+  .currency-toggle:active{ transform:scale(0.95); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <button class="lang-toggle" id="langToggle" onclick="toggleLang()">English</button>
+  <button class="currency-toggle" id="currencyToggle" onclick="toggleCurrency()">🇸🇾 ل.س</button>
+  <div class="hero-brand">
+    <div class="hero-mark">🌿</div>
+    <p class="brand-name" id="brandName">مطعم وكافيه الخواجة</p>
+    <p class="brand-tagline" id="brandTagline">نكهات أصيلة من قلب الشرق</p>
+  </div>
+  <div class="meta-row">
+    <span class="meta-pill" id="hoursText">🕒 يومياً من ١١ ص حتى منتصف الليل</span>
+    <span class="meta-pill">📞 <a href="tel:+9660991854084">0991854084</a></span>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="searchInput" type="text" placeholder="ابحث في القائمة..." oninput="renderMenu()">
+    </div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</div>
+
+<div id="menuContent"></div>
+
+<div class="footer">
+  <strong id="footerName">مطعم وكافيه الخواجة</strong>
+  <span id="footerAddress">حمص، سوريا</span><br>
+  @alkhawaja.restaurant
+  <div class="qr-note" id="qrNote">قائمة رقمية · امسح · تصفح · استمتع</div>
+</div>
+
+<script>
+let MENU = {};
+let IMAGES = {};
+let SETTINGS = {exchange_rate_syp_per_usd: 13000, default_currency: 'usd'};
+const FOOD_EMOJI = {appetizers:'🥗', grills:'🍢', juices:'🥤', hot_drinks:'☕'};
+let activeCategory = 'all';
+let lang = 'ar';
+let currency = 'usd';
+let searchDebounceTimer = null;
+const ANALYTICS_ENDPOINT = 'https://03l2yp511l-5055.hosted.obvious.ai/api/track';
+
+function formatPrice(usdPrice){
+  if(currency === 'syp'){
+    const sypValue = Math.round(usdPrice * SETTINGS.exchange_rate_syp_per_usd / 100) * 100; // round to nearest 100
+    return sypValue.toLocaleString('en-US') + ' ل.س';
+  }
+  return '$' + Number(usdPrice).toFixed(2);
+}
+
+function toggleCurrency(){
+  currency = currency === 'usd' ? 'syp' : 'usd';
+  const btn = document.getElementById('currencyToggle');
+  btn.innerText = currency === 'usd' ? '🇸🇾 ل.س' : '🇺🇸 USD';
+  try{ localStorage.setItem('menu_currency', currency); }catch(e){}
+  renderMenu();
+}
+
+const STRINGS = {
+  ar: {
+    brandName: 'مطعم وكافيه الخواجة',
+    brandTagline: 'نكهات أصيلة من قلب الشرق',
+    hours: '🕒 يومياً من ١١ ص حتى منتصف الليل',
+    searchPlaceholder: 'ابحث في القائمة...',
+    all: 'الكل',
+    popular: '⭐ الأكثر طلبًا',
+    offer: '🔥 عرض اليوم',
+    noResults: '🔍<br>لا توجد نتائج',
+    footerName: 'مطعم وكافيه الخواجة',
+    footerAddress: 'حمص، سوريا',
+    qrNote: 'قائمة رقمية · امسح · تصفح · استمتع',
+    toggleLabel: 'English'
+  },
+  en: {
+    brandName: 'Al Khawaja Restaurant & Cafe',
+    brandTagline: 'Authentic Flavors from the Heart of the East',
+    hours: '🕒 Daily 11am – Midnight',
+    searchPlaceholder: 'Search menu...',
+    all: 'All',
+    popular: '⭐ Popular',
+    offer: '🔥 Today\'s Special',
+    noResults: '🔍<br>No items found',
+    footerName: 'Al Khawaja Restaurant & Cafe',
+    footerAddress: 'Homs, Syria',
+    qrNote: 'Digital Menu · Scan · Browse · Enjoy',
+    toggleLabel: 'العربية'
+  }
+};
+
+function trackEvent(type, payload){
+  try{
+    fetch(ANALYTICS_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({type, ...payload, ts: Date.now()})
+    }).catch(()=>{});
+  }catch(e){}
+}
+trackEvent('view', {});
+
+function toggleLang(){
+  lang = lang === 'ar' ? 'en' : 'ar';
+  const html = document.getElementById('htmlRoot');
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  renderStaticText();
+  renderTabs();
+  renderMenu();
+}
+
+function renderStaticText(){
+  const s = STRINGS[lang];
+  document.getElementById('brandName').innerText = s.brandName;
+  document.getElementById('brandTagline').innerText = s.brandTagline;
+  document.getElementById('hoursText').innerText = s.hours;
+  document.getElementById('searchInput').placeholder = s.searchPlaceholder;
+  document.getElementById('langToggle').innerText = s.toggleLabel;
+  document.getElementById('footerName').innerText = s.footerName;
+  document.getElementById('footerAddress').innerText = s.footerAddress;
+  document.getElementById('qrNote').innerText = s.qrNote;
+}
+
+function renderTabs(){
+  const tabsEl = document.getElementById('tabs');
+  tabsEl.innerHTML = '';
+  const allTab = document.createElement('div');
+  allTab.className = 'tab' + (activeCategory === 'all' ? ' active' : '');
+  allTab.innerText = STRINGS[lang].all;
+  allTab.onclick = () => { activeCategory = 'all'; renderTabs(); renderMenu(); };
+  tabsEl.appendChild(allTab);
+
+  Object.keys(MENU).forEach(catKey => {
+    const cat = MENU[catKey];
+    const tab = document.createElement('div');
+    tab.className = 'tab' + (activeCategory === catKey ? ' active' : '');
+    tab.innerText = lang === 'ar' ? cat.label : cat.label_en;
+    tab.onclick = () => {
+      activeCategory = catKey;
+      renderTabs();
+      renderMenu();
+      document.getElementById('cat-' + catKey)?.scrollIntoView({behavior:'smooth', block:'start'});
+    };
+    tabsEl.appendChild(tab);
+  });
+}
+
+function renderMenu(){
+  const container = document.getElementById('menuContent');
+  container.innerHTML = '';
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  if(query){
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => trackEvent('search', {query}), 700);
+  }
+
+  const catKeys = activeCategory === 'all' ? Object.keys(MENU) : [activeCategory];
+  let anyResults = false;
+
+  catKeys.forEach(catKey => {
+    const cat = MENU[catKey];
+    const catLabel = lang === 'ar' ? cat.label : cat.label_en;
+    let items = cat.items.filter(i => !i.hidden);
+    if(query){
+      items = items.filter(i =>
+        i.name.toLowerCase().includes(query) ||
+        i.desc.toLowerCase().includes(query) ||
+        i.name_en.toLowerCase().includes(query) ||
+        i.desc_en.toLowerCase().includes(query)
+      );
+    }
+    if(items.length === 0) return;
+    anyResults = true;
+
+    const section = document.createElement('div');
+    section.className = 'category-section';
+    section.id = 'cat-' + catKey;
+
+    const title = document.createElement('div');
+    title.className = 'category-title';
+    title.innerHTML = `${FOOD_EMOJI[catKey]||'🍽️'} ${catLabel} <span class="category-count">${items.length}</span>`;
+    section.appendChild(title);
+
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'item-card';
+      card.onclick = () => trackEvent('item_view', {key: item.key, name: item.name});
+      const imgSrc = IMAGES[item.key] || IMAGES['default-item'] || '';
+      const itemName = lang === 'ar' ? item.name : item.name_en;
+      const itemDesc = lang === 'ar' ? item.desc : item.desc_en;
+      card.innerHTML = `
+        <img class="item-img" src="${imgSrc}" alt="${itemName}" loading="lazy">
+        <div class="item-body">
+          <div class="item-top">
+            <div>
+              <p class="item-name">${itemName}</p>
+              ${item.offer ? `<span class="popular-badge offer-badge">${STRINGS[lang].offer}</span>` : (item.popular ? `<span class="popular-badge">${STRINGS[lang].popular}</span>` : '')}
+            </div>
+            <div class="item-price">${formatPrice(item.price)}</div>
+          </div>
+          <p class="item-desc">${itemDesc}</p>
+        </div>
+      `;
+      section.appendChild(card);
+    });
+    container.appendChild(section);
+  });
+
+  if(!anyResults){
+    container.innerHTML = `<div class="empty-state">${STRINGS[lang].noResults}</div>`;
+  }
+}
+
+async function loadMenu(){
+  try{
+    const res = await fetch('menu-data.json?t=' + Date.now());
+    const data = await res.json();
+    MENU = data.menu;
+    IMAGES = data.images;
+    if(data.settings) SETTINGS = data.settings;
+  }catch(e){
+    console.error('Failed to load menu data', e);
+  }
+  if(SETTINGS.default_currency === 'usd' || SETTINGS.default_currency === 'syp'){
+    currency = SETTINGS.default_currency;
+  }
+  try{
+    const savedCurrency = localStorage.getItem('menu_currency');
+    if(savedCurrency === 'usd' || savedCurrency === 'syp') currency = savedCurrency;
+  }catch(e){}
+  document.getElementById('currencyToggle').innerText = currency === 'usd' ? '🇸🇾 ل.س' : '🇺🇸 USD';
+  renderStaticText();
+  renderTabs();
+  renderMenu();
+}
+
+loadMenu();
+</script>
+
+</body>
+</html>

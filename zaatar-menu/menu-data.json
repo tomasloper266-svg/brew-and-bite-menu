@@ -1,0 +1,217 @@
+{
+  "menu": {
+    "appetizers": {
+      "icon": "🥗",
+      "items": [
+        {
+          "desc": "حمص كريمي مع طحينة وزيت زيتون وحبة صنوبر",
+          "desc_en": "Creamy hummus with tahini, olive oil and pine nuts",
+          "hidden": false,
+          "key": "hummus",
+          "name": "حمص بالطحينة",
+          "name_en": "Hummus with Tahini",
+          "offer": false,
+          "price": 6
+        },
+        {
+          "desc": "باذنجان مشوي مهروس مع طحينة ورمان",
+          "desc_en": "Grilled eggplant mash with tahini and pomegranate",
+          "hidden": false,
+          "key": "moutabal",
+          "name": "متبل باذنجان",
+          "name_en": "Eggplant Moutabal",
+          "offer": false,
+          "price": 6.5
+        },
+        {
+          "desc": "بقدونس مفروم ناعم مع برغل وطماطم وليمون",
+          "desc_en": "Finely chopped parsley with bulgur, tomato and lemon",
+          "hidden": false,
+          "key": "tabbouleh",
+          "name": "تبولة",
+          "name_en": "Tabbouleh",
+          "offer": false,
+          "price": 7
+        },
+        {
+          "desc": "خضار طازجة مع خبز محمص مقرمش ودبس رمان",
+          "desc_en": "Fresh vegetables with crispy toasted bread and pomegranate molasses",
+          "hidden": false,
+          "key": "fattoush",
+          "name": "فتوش",
+          "name_en": "Fattoush",
+          "offer": false,
+          "price": 7
+        }
+      ],
+      "label": "مقبلات",
+      "label_en": "Appetizers"
+    },
+    "grills": {
+      "icon": "🍢",
+      "items": [
+        {
+          "desc": "قطع دجاج متبلة ومشوية على الفحم مع ثوم",
+          "desc_en": "Marinated chicken skewers grilled over charcoal with garlic",
+          "hidden": false,
+          "key": "shish-tawook",
+          "name": "شيش طاووق",
+          "name_en": "Shish Tawook",
+          "offer": false,
+          "price": 14
+        },
+        {
+          "desc": "أسياخ لحم بقري مشوية بنكهة مدخنة",
+          "desc_en": "Grilled beef skewers with a smoky flavor",
+          "hidden": false,
+          "key": "beef-skewers",
+          "name": "كباب لحم",
+          "name_en": "Beef Skewers",
+          "offer": false,
+          "price": 16
+        },
+        {
+          "desc": "لحم مفروم متبل بالبهارات ومشوي على الفحم",
+          "desc_en": "Spiced ground meat grilled over charcoal",
+          "hidden": false,
+          "key": "kafta",
+          "name": "كفتة مشوية",
+          "name_en": "Grilled Kafta",
+          "offer": false,
+          "price": 14
+        },
+        {
+          "desc": "تشكيلة من الشيش طاووق والكباب والكفتة",
+          "desc_en": "A selection of shish tawook, beef skewers and kafta",
+          "hidden": false,
+          "key": "mixed-grill",
+          "name": "مشاوي مشكلة",
+          "name_en": "Mixed Grill",
+          "offer": false,
+          "popular": true,
+          "price": 22
+        }
+      ],
+      "label": "مشاوي",
+      "label_en": "Grills"
+    },
+    "hot_drinks": {
+      "icon": "☕",
+      "items": [
+        {
+          "desc": "قهوة عربية أصيلة تقدم مع التمر",
+          "desc_en": "Authentic Arabic coffee served with dates",
+          "hidden": false,
+          "key": "arabic-coffee",
+          "name": "قهوة عربية",
+          "name_en": "Arabic Coffee",
+          "offer": false,
+          "price": 4
+        },
+        {
+          "desc": "شاي أسود مع أوراق نعناع طازجة",
+          "desc_en": "Black tea with fresh mint leaves",
+          "hidden": false,
+          "key": "mint-tea",
+          "name": "شاي بالنعناع",
+          "name_en": "Mint Tea",
+          "offer": false,
+          "price": 3.5
+        },
+        {
+          "desc": "قهوة تركية تقليدية مع قطعة راحة الحلقوم",
+          "desc_en": "Traditional Turkish coffee with a piece of Turkish delight",
+          "hidden": false,
+          "key": "turkish-coffee",
+          "name": "قهوة تركية",
+          "name_en": "Turkish Coffee",
+          "offer": false,
+          "price": 4
+        },
+        {
+          "desc": "مشروب ساخن كريمي مع قرفة وفستق وجوز هند",
+          "desc_en": "Creamy hot drink with cinnamon, pistachio and coconut",
+          "hidden": false,
+          "key": "sahlab",
+          "name": "سحلب",
+          "name_en": "Sahlab",
+          "offer": false,
+          "price": 5
+        }
+      ],
+      "label": "مشروبات ساخنة",
+      "label_en": "Hot Drinks"
+    },
+    "juices": {
+      "icon": "🥤",
+      "items": [
+        {
+          "desc": "عصير برتقال طازج معصور فوراً",
+          "desc_en": "Freshly squeezed orange juice",
+          "hidden": false,
+          "key": "orange-juice",
+          "name": "عصير برتقال",
+          "name_en": "Orange Juice",
+          "offer": false,
+          "price": 5
+        },
+        {
+          "desc": "عصير مانجا طبيعي منعش وكثيف القوام",
+          "desc_en": "Natural mango juice, refreshing and thick",
+          "hidden": false,
+          "key": "mango-juice",
+          "name": "عصير مانجا",
+          "name_en": "Mango Juice",
+          "offer": false,
+          "price": 5.5
+        },
+        {
+          "desc": "عصير فراولة طازج بدون إضافات",
+          "desc_en": "Fresh strawberry juice, no additives",
+          "hidden": false,
+          "key": "strawberry-juice",
+          "name": "عصير فراولة",
+          "name_en": "Strawberry Juice",
+          "offer": false,
+          "price": 5.5
+        },
+        {
+          "desc": "ليمون طازج مع أوراق نعناع وثلج مجروش",
+          "desc_en": "Fresh lemon with mint leaves and crushed ice",
+          "hidden": false,
+          "key": "mint-lemonade",
+          "name": "ليموناضة بالنعناع",
+          "name_en": "Mint Lemonade",
+          "offer": false,
+          "price": 5
+        }
+      ],
+      "label": "عصائر طبيعية",
+      "label_en": "Fresh Juices"
+    }
+  },
+  "images": {
+    "hummus": "img/hummus.jpg",
+    "moutabal": "img/moutabal.jpg",
+    "tabbouleh": "img/tabbouleh.jpg",
+    "fattoush": "img/fattoush.jpg",
+    "shish-tawook": "img/shish-tawook.jpg",
+    "beef-skewers": "img/beef-skewers.jpg",
+    "kafta": "img/kafta.jpg",
+    "mixed-grill": "img/mixed-grill.jpg",
+    "orange-juice": "img/orange-juice.jpg",
+    "mango-juice": "img/mango-juice.jpg",
+    "strawberry-juice": "img/strawberry-juice.jpg",
+    "mint-lemonade": "img/mint-lemonade.jpg",
+    "arabic-coffee": "img/arabic-coffee.jpg",
+    "mint-tea": "img/mint-tea.jpg",
+    "turkish-coffee": "img/turkish-coffee.jpg",
+    "sahlab": "img/sahlab.jpg",
+    "hero-bg": "img/hero-bg.jpg",
+    "default-item": "img/default-item.jpg"
+  },
+  "settings": {
+    "exchange_rate_syp_per_usd": 13000,
+    "default_currency": "usd"
+  }
+}
