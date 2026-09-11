@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>مطعم وكافيه الخواجة — القائمة الرقمية</title>
 <meta name="theme-color" content="#0d0d0d">
+<meta name="description" content="القائمة الرقمية لمطعم وكافيه الخواجة — نكهات أصيلة من قلب الشرق. مقبلات، مشاوي، مشروبات ساخنة وعصائر طبيعية.">
+<meta property="og:title" content="مطعم وكافيه الخواجة — القائمة الرقمية">
+<meta property="og:description" content="نكهات أصيلة من قلب الشرق. تصفح المقبلات والمشاوي والمشروبات والعصائر.">
+<meta property="og:image" content="img/hero-bg.jpg">
+<meta property="og:type" content="restaurant.menu">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Amiri:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -514,14 +520,20 @@ function renderMenu(){
 }
 
 async function loadMenu(){
+  const container = document.getElementById('menuContent');
+  container.innerHTML = `<div class="empty-state" id="loadingState">${lang === 'ar' ? '⏳ جارِ تحميل القائمة...' : '⏳ Loading menu...'}</div>`;
+
   try{
-    const res = await fetch('menu-data.json?t=' + Date.now());
+    const res = await fetch('menu-data.json');
+    if(!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     MENU = data.menu;
     IMAGES = data.images;
     if(data.settings) SETTINGS = data.settings;
   }catch(e){
     console.error('Failed to load menu data', e);
+    container.innerHTML = `<div class="empty-state">⚠️<br>${lang === 'ar' ? 'تعذّر تحميل القائمة، حاول تحديث الصفحة' : 'Could not load the menu, please refresh the page'}</div>`;
+    return;
   }
   if(SETTINGS.default_currency === 'usd' || SETTINGS.default_currency === 'syp'){
     currency = SETTINGS.default_currency;
