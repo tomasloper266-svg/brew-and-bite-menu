@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BITE HOUSE — Redirecting…</title>
+<script>
+// The menu folder was renamed from zaatar-menu/ to bite-house-menu/.
+// This fallback keeps every old link, card, and bookmark working by
+// mapping /<repo>/zaatar-menu/<rest> to /<repo>/bite-house-menu/<rest>.
+(function () {
+  var loc = window.location;
+  var dest = loc.pathname.replace(/\/zaatar-menu\//, "/bite-house-menu/");
+  if (dest === loc.pathname) { dest = "/brew-and-bite-menu/bite-house-menu/"; }
+  window.location.replace(loc.origin + dest + loc.search + loc.hash);
+})();
+</script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 3rem;">
+<p>Redirecting to the menu… جارٍ التحويل إلى القائمة…</p>
+<p><a href="/brew-and-bite-menu/bite-house-menu/" style="color: #e0701f;">BITE HOUSE Menu</a></p>
+</body>
+</html>
