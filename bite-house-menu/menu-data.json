@@ -11,7 +11,7 @@
           "name_en": "Coffee & Dessert",
           "desc": "قهوة مختارة + قطعة حلى من اختيارك بسعر مميز",
           "desc_en": "Any specialty coffee with a dessert of your choice at a special price",
-          "price": 100000,
+          "price": 50000,
           "offer": true,
           "hidden": false
         },
@@ -1507,7 +1507,7 @@
     "default-item": "img/hero-feast.webp"
   },
   "settings": {
-    "exchange_rate_syp_per_usd": 130,
+    "exchange_rate_syp_per_usd": 14000,
     "default_currency": "syp",
     "note": "أسعار مقترحة بالليرة السورية الجديدة — قابلة للتعديل. Suggested prices in new-SYP denomination — editable.",
     "note_en": "Suggested prices in the new Syrian pound denomination — editable."
