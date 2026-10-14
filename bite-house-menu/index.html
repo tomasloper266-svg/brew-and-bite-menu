@@ -416,6 +416,8 @@
     padding:2px;
   }
   .grid-card{
+    position:relative;
+    overflow:hidden;
     flex-direction:column;
     align-items:stretch;
     gap:0;
@@ -431,17 +433,18 @@
     border-bottom:1px solid var(--line);
     box-shadow:none;
   }
-  .grid-card .item-body{ padding:10px 12px 12px; }
-  .grid-card .item-top{ flex-direction:column; align-items:flex-start; gap:3px; }
+  .grid-card .item-body{ padding:10px 12px 12px; display:flex; flex-direction:column; flex:1; }
+  .grid-card .item-top{ flex-direction:column; align-items:flex-start; gap:3px; flex:1; }
   .grid-card .item-name{
     font-size:15px;
     line-height:1.45;
     display:-webkit-box;
-    -webkit-line-clamp:2;
+    -webkit-line-clamp:3;
     -webkit-box-orient:vertical;
     overflow:hidden;
+    word-break:break-word;
   }
-  .grid-card .item-price{ font-size:15.5px; }
+  .grid-card .item-price{ font-size:15.5px; margin-top:auto; padding-top:8px; }
   .grid-card .leader{ display:none; }
   .grid-card .item-desc{ display:none; }
   .grid-card .badge{
@@ -740,7 +743,11 @@ function renderMenu(){
     anyResults = true;
 
     if(gridMode){
-      items.forEach(item => grid.appendChild(buildItemCard(item, gridIdx++)));
+      items.forEach(item => {
+        const c = buildItemCard(item, gridIdx++);
+        c.classList.add('grid-card');
+        grid.appendChild(c);
+      });
       return;
     }
 
