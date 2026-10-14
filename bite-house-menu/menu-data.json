@@ -100,7 +100,7 @@
           "desc_en": "Grilled beef patty, lettuce, tomato, house sauce",
           "price": 80000,
           "offer": false,
-          "hidden": false
+          "hidden": true
         },
         {
           "key": "burger-double-smash",
