@@ -191,6 +191,15 @@
           "price": 80000,
           "offer": false,
           "hidden": false
+        },
+        {
+          "key": "item-mv7hakud",
+          "name": "تجربة فحص",
+          "name_en": "New item",
+          "desc": "",
+          "desc_en": "",
+          "price": 25000,
+          "hidden": false
         }
       ]
     },
