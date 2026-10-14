@@ -617,7 +617,7 @@
       ]
     },
     "desserts": {
-      "label": "حلا",
+      "label": "حلويات",
       "label_en": "Desserts",
       "icon": "🍰",
       "items": [
@@ -1279,8 +1279,8 @@
       ]
     },
     "shisha": {
-      "label": "شيشة",
-      "label_en": "Shisha",
+      "label": "أراكيل",
+      "label_en": "Argileh",
       "icon": "💨",
       "items": [
         {

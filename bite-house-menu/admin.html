@@ -159,6 +159,17 @@
     opacity:0; pointer-events:none; transition:opacity .2s;
   }
   .toast.show{ opacity:1; }
+  .del-btn{
+    margin-inline-start:8px; border:1px solid rgba(198,60,40,0.35); background:#fdf1ee;
+    color:#b3362a; font-weight:700; font-size:11.5px; padding:6px 12px; border-radius:999px; cursor:pointer;
+  }
+  .del-btn:active{ transform:scale(0.96); }
+  .add-btn{
+    display:block; width:calc(100% - 28px); margin:6px 14px 14px; padding:10px;
+    border:1.5px dashed rgba(180,82,14,0.45); border-radius:12px; background:rgba(249,227,207,0.35);
+    color:#b4520e; font-weight:700; font-size:13px; cursor:pointer;
+  }
+  .add-btn:active{ transform:scale(0.99); }
 </style>
 </head>
 <body>
@@ -279,6 +290,20 @@ function renderCats(){
     d.appendChild(s);
 
     for (const it of cat.items) d.appendChild(itemRow(ckey, it));
+
+    const add = document.createElement('button');
+    add.type = 'button'; add.className = 'add-btn'; add.textContent = '＋ إضافة صنف جديد';
+    add.addEventListener('click', () => {
+      const nk = 'item-' + Date.now().toString(36);
+      const nit = { key: nk, name: 'صنف جديد', name_en: 'New item', desc: '', desc_en: '', price: 0, hidden: false };
+      cat.items.push(nit);
+      d.appendChild(itemRow(ckey, nit));
+      d.open = true;
+      const cnt = d.querySelector('.cnt'); if (cnt) cnt.textContent = cat.items.length;
+      markDirty();
+    });
+    d.appendChild(add);
+
     host.appendChild(d);
   }
 }
@@ -325,6 +350,20 @@ function itemRow(ckey, it){
     if (!it.hidden && ob) ob.remove();
     markDirty();
   });
+
+  const del = document.createElement('button');
+  del.type = 'button'; del.className = 'del-btn'; del.textContent = '🗑 حذف';
+  del.addEventListener('click', () => {
+    if (!confirm('حذف الصنف «' + (it.name || it.key) + '» نهائيًا؟')) return;
+    const arr = DATA.menu[ckey].items;
+    const i = arr.indexOf(it);
+    if (i > -1) arr.splice(i, 1);
+    row.remove();
+    const cnt = document.querySelector('details.cat[data-cat="' + CSS.escape(ckey) + '"] .cnt');
+    if (cnt) cnt.textContent = arr.length;
+    markDirty();
+  });
+  cAv.appendChild(del);
 
   main.append(cAr, cEn, cPr, cAv);
   row.appendChild(main);
