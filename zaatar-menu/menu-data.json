@@ -1,217 +1,1515 @@
 {
   "menu": {
-    "appetizers": {
+    "offers": {
+      "label": "عروض مميزة",
+      "label_en": "Special Offers",
+      "icon": "🔥",
+      "items": [
+        {
+          "key": "offer-coffee-dessert",
+          "name": "قهوة + حلى",
+          "name_en": "Coffee & Dessert",
+          "desc": "قهوة مختارة + قطعة حلى من اختيارك بسعر مميز",
+          "desc_en": "Any specialty coffee with a dessert of your choice at a special price",
+          "price": 100000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-burger-cola",
+          "name": "برجر + كولا",
+          "name_en": "Burger & Cola",
+          "desc": "وجبة برجر + بطاطا + مشروب غازي",
+          "desc_en": "Burger meal with fries and a soft drink",
+          "price": 85000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-burger-night",
+          "name": "عرض برجر الليلة",
+          "name_en": "Burger Night Offer",
+          "desc": "برجر مزدوج + بطاطا + مشروب — مثالي للجلسات المسائية",
+          "desc_en": "Double burger, loaded fries and a drink — perfect for late evenings",
+          "price": 120000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-couple-moment",
+          "name": "لقطة ثنائية",
+          "name_en": "Couple Moment",
+          "desc": "وجبتان + مشروبان + شيشة واحدة",
+          "desc_en": "Two meals, two drinks and one shisha",
+          "price": 300000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-friends-time",
+          "name": "وقت الأصحاب",
+          "name_en": "Friends Time",
+          "desc": "4 وجبات برجر + 4 مشروبات غازية + شيشة",
+          "desc_en": "Four burger meals, four soft drinks and a shisha",
+          "price": 550000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-cocktail-duo",
+          "name": "كوكتيل × 2",
+          "name_en": "Cocktail Duo",
+          "desc": "اختر أي كوكتيلين من عصائر فريش أو موهيتو",
+          "desc_en": "Pick any two cocktails from fresh juices or mojitos",
+          "price": 180000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-family-meal",
+          "name": "فاميلي ميل",
+          "name_en": "Family Meal",
+          "desc": "2 برجر كلاسيك + 1 دجاج مقرمش + بطاطا عائلية + 4 مشروبات",
+          "desc_en": "Two classic burgers, crispy chicken basket, family fries and four drinks",
+          "price": 400000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "offer-lounge",
+          "name": "عرض اللاونج",
+          "name_en": "Lounge Offer",
+          "desc": "شيشة بريميوم + 2 قهوة + حلى مشترك — للجلسات الطويلة",
+          "desc_en": "Premium shisha, two coffees and a shared dessert — built for long sessions",
+          "price": 450000,
+          "offer": true,
+          "hidden": false
+        }
+      ]
+    },
+    "burgers": {
+      "label": "برجر",
+      "label_en": "Burgers",
+      "icon": "🍔",
+      "items": [
+        {
+          "key": "burger-classic",
+          "name": "برجر كلاسيك",
+          "name_en": "Classic Burger",
+          "desc": "لحم بقري مشوي، خس، طماطم، صوص خاص",
+          "desc_en": "Grilled beef patty, lettuce, tomato, house sauce",
+          "price": 80000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-double-smash",
+          "name": "برجر دبل سماش",
+          "name_en": "Double Smash Burger",
+          "desc": "قطعتا لحم سماش، جبنة مزدوجة، بصل مكرمل",
+          "desc_en": "Two smashed patties, double cheese, caramelized onions",
+          "price": 110000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-cheese",
+          "name": "تشيز برجر",
+          "name_en": "Cheese Burger",
+          "desc": "لحم بقري، جبنة شيدر ذائبة، مخلل",
+          "desc_en": "Beef patty, melted cheddar, pickles",
+          "price": 90000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-fire",
+          "name": "فاير برجر",
+          "name_en": "Fire Burger",
+          "desc": "صوص حار، جلابينو، جبنة، بصل مقرمش",
+          "desc_en": "Spicy sauce, jalapeño, cheese, crispy onions",
+          "price": 95000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-mushroom",
+          "name": "ماشروم برجر",
+          "name_en": "Mushroom Burger",
+          "desc": "لحم، مشروم سوتيه، جبنة، صوص الثوم",
+          "desc_en": "Beef, sautéed mushrooms, cheese, garlic sauce",
+          "price": 100000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-bbq",
+          "name": "باربكيو برجر",
+          "name_en": "BBQ Burger",
+          "desc": "صوص باربكيو، حلقات بصل، جبنة مدخنة",
+          "desc_en": "BBQ sauce, onion rings, smoked cheese",
+          "price": 100000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-triple-cheese",
+          "name": "تريبل تشيز برجر",
+          "name_en": "Triple Cheese Burger",
+          "desc": "ثلاث طبقات جبنة، صوص الشيدر",
+          "desc_en": "Three cheese layers, cheddar sauce",
+          "price": 115000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-signature",
+          "name": "سيغنتشر برجر",
+          "name_en": "Signature Burger",
+          "desc": "لحم عصيري، بيكون بقري، جبنة، صوص البيت",
+          "desc_en": "Juicy beef, beef bacon, cheese, house sauce",
+          "price": 130000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "burger-chicken-cheese",
+          "name": "برجر دجاج بالجبنة",
+          "name_en": "Chicken Cheese Burger",
+          "desc": "دجاج مقرمش، جبنة، مايونيز الثوم",
+          "desc_en": "Crispy chicken, cheese, garlic mayo",
+          "price": 75000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "zinger-burger",
+          "name": "زنجر برجر",
+          "name_en": "Zinger Burger",
+          "desc": "دجاج حار مقرمش، خس، صوص خاص",
+          "desc_en": "Crispy spicy chicken, lettuce, special sauce",
+          "price": 80000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "chicken": {
+      "label": "دجاج",
+      "label_en": "Chicken",
+      "icon": "🍗",
+      "items": [
+        {
+          "key": "chicken-crispy",
+          "name": "سلة دجاج مقرمش",
+          "name_en": "Crispy Chicken Basket",
+          "desc": "8 قطع دجاج مقرمش + بطاطا",
+          "desc_en": "8 crispy chicken pieces with fries",
+          "price": 95000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-spicy",
+          "name": "سلة دجاج حار",
+          "name_en": "Spicy Chicken Basket",
+          "desc": "8 قطع بتوابل حارة + صوص",
+          "desc_en": "8 pieces in hot spices with a dip",
+          "price": 100000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-grilled",
+          "name": "دجاج مشوي",
+          "name_en": "Grilled Chicken",
+          "desc": "نصف دجاجة مشوية + خبز + ثومية",
+          "desc_en": "Half grilled chicken with bread and garlic sauce",
+          "price": 105000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "sandwiches": {
+      "label": "ساندويتشات وأغلفة",
+      "label_en": "Sandwiches & Wraps",
+      "icon": "🌯",
+      "items": [
+        {
+          "key": "wrap-chicken",
+          "name": "راب دجاج",
+          "name_en": "Chicken Wrap",
+          "desc": "دجاج، خس، صوص",
+          "desc_en": "Chicken, lettuce, sauce",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-fajita",
+          "name": "راب فاهيتا دجاج",
+          "name_en": "Chicken Fajita Wrap",
+          "desc": "دجاج بالفلفل والبصل، صوص حار",
+          "desc_en": "Chicken with peppers, onion, hot sauce",
+          "price": 65000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "crispy-chicken-wrap",
+          "name": "راب كرسبي",
+          "name_en": "Crispy Chicken Wrap",
+          "desc": "دجاج مقرمش، مخلل، مايونيز",
+          "desc_en": "Crispy chicken, pickles, mayo",
+          "price": 60000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "club-sandwich",
+          "name": "كلوب ساندويتش",
+          "name_en": "Club Sandwich",
+          "desc": "دجاج، بيض، جبنة، خبز محمص",
+          "desc_en": "Chicken, egg, cheese, toasted bread",
+          "price": 70000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "philly-steak",
+          "name": "فيلي ستيك",
+          "name_en": "Philly Steak",
+          "desc": "شرائح لحم، جبنة، فلفل",
+          "desc_en": "Beef strips, cheese, peppers",
+          "price": 85000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "hot-dog",
+          "name": "هوت دوغ",
+          "name_en": "Hot Dog",
+          "desc": "نقانق، صوص، بصل مقرمش",
+          "desc_en": "Sausage, sauce, crispy onions",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-shawarma",
+          "name": "شاورما دجاج",
+          "name_en": "Chicken Shawarma",
+          "desc": "دجاج، ثومية، مخلل",
+          "desc_en": "Chicken, garlic sauce, pickles",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "meat-shawarma",
+          "name": "شاورما لحم",
+          "name_en": "Meat Shawarma",
+          "desc": "لحم، طحينة، طماطم",
+          "desc_en": "Beef, tahini, tomato",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shawarma-super",
+          "name": "شاورما سوبر",
+          "name_en": "Super Shawarma",
+          "desc": "دجاج + لحم، جبنة، بطاطا داخل الراب",
+          "desc_en": "Chicken and beef, cheese, fries inside",
+          "price": 70000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "pizza": {
+      "label": "بيتزا",
+      "label_en": "Pizza",
+      "icon": "🍕",
+      "items": [
+        {
+          "key": "pizza-margherita",
+          "name": "مارغريتا",
+          "name_en": "Margherita",
+          "desc": "صوص طماطم، موزاريلا، ريحان",
+          "desc_en": "Tomato sauce, mozzarella, basil",
+          "price": 90000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pizza-pepperoni",
+          "name": "بيبروني",
+          "name_en": "Pepperoni",
+          "desc": "بيبروني، موزاريلا، صوص الطماطم",
+          "desc_en": "Pepperoni, mozzarella, tomato sauce",
+          "price": 110000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pizza-four-cheese",
+          "name": "فور تشيز",
+          "name_en": "Four Cheese",
+          "desc": "موزاريلا، شيدر، جبنة زرقاء، بارميزان",
+          "desc_en": "Mozzarella, cheddar, blue cheese, parmesan",
+          "price": 120000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pizza-vegetarian",
+          "name": "خضار",
+          "name_en": "Vegetarian",
+          "desc": "فلفل، مشروم، زيتون، ذرة",
+          "desc_en": "Peppers, mushroom, olives, corn",
+          "price": 95000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pizza-chicken-bbq",
+          "name": "دجاج باربكيو",
+          "name_en": "BBQ Chicken",
+          "desc": "دجاج، صوص باربكيو، بصل أحمر",
+          "desc_en": "Chicken, BBQ sauce, red onion",
+          "price": 115000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pizza-bite-special",
+          "name": "بيتزا بيت هاوس",
+          "name_en": "BITE Special Pizza",
+          "desc": "خلطة اللحم المفروم، جبنة، فلفل حار، صوص خاص",
+          "desc_en": "Minced beef mix, cheese, hot peppers, house sauce",
+          "price": 125000,
+          "offer": true,
+          "hidden": false
+        }
+      ]
+    },
+    "sides": {
+      "label": "مقبلات ومقرمشات",
+      "label_en": "Sides & Starters",
+      "icon": "🍟",
+      "items": [
+        {
+          "key": "french-fries",
+          "name": "بطاطا مقلية",
+          "name_en": "French Fries",
+          "desc": "بطاطا ذهبية مقرمشة",
+          "desc_en": "Golden crispy fries",
+          "price": 30000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "cheese-fries",
+          "name": "بطاطا بالجبنة",
+          "name_en": "Cheese Fries",
+          "desc": "بطاطا + صوص الشيدر الساخن",
+          "desc_en": "Fries with hot cheddar sauce",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "loaded-fries",
+          "name": "بطاطا لودد",
+          "name_en": "Loaded Fries",
+          "desc": "جبنة، لحم مفروم، بصل مقرمش",
+          "desc_en": "Cheese, minced beef, crispy onions",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "seasoned-fries",
+          "name": "بطاطا متبلة",
+          "name_en": "Seasoned Fries",
+          "desc": "توابل البيت الخاصة",
+          "desc_en": "House spice mix",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "onion-rings",
+          "name": "أونيون رينج",
+          "name_en": "Onion Rings",
+          "desc": "حلقات بصل مقرمشة + صوص",
+          "desc_en": "Crispy onion rings with a dip",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "mozzarella-sticks",
+          "name": "موزاريلا ستيكس",
+          "name_en": "Mozzarella Sticks",
+          "desc": "أصابع موزاريلا ذائبة + مارينارا",
+          "desc_en": "Melting mozzarella sticks, marinara",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-nuggets",
+          "name": "ناغتس دجاج",
+          "name_en": "Chicken Nuggets",
+          "desc": "10 قطع + صوص الاختيار",
+          "desc_en": "10 pieces with a dip of choice",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "hummus",
+          "name": "حمص بالطحينة",
+          "name_en": "Hummus",
+          "desc": "حمص كريمي بزيت الزيتون",
+          "desc_en": "Creamy hummus with olive oil",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "mutabbal",
+          "name": "متبل",
+          "name_en": "Mutabbal",
+          "desc": "باذنجان مشوي بالطحينة",
+          "desc_en": "Smoky eggplant with tahini",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "meals": {
+      "label": "وجبات",
+      "label_en": "Meals",
+      "icon": "🍱",
+      "items": [
+        {
+          "key": "classic-burger-meal",
+          "name": "وجبة برجر كلاسيك",
+          "name_en": "Classic Burger Meal",
+          "desc": "برجر + بطاطا + مشروب",
+          "desc_en": "Burger, fries and a drink",
+          "price": 100000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "double-smash-meal",
+          "name": "وجبة دبل سماش",
+          "name_en": "Double Smash Meal",
+          "desc": "دبل سماش + بطاطا + مشروب",
+          "desc_en": "Double smash, fries and a drink",
+          "price": 130000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "crispy-chicken-meal",
+          "name": "وجبة دجاج مقرمش",
+          "name_en": "Crispy Chicken Meal",
+          "desc": "سلة دجاج + بطاطا + مشروب",
+          "desc_en": "Chicken basket, fries and a drink",
+          "price": 115000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-wings-meal",
+          "name": "وجبة أجنحة",
+          "name_en": "Chicken Wings Meal",
+          "desc": "10 أجنحة + بطاطا + مشروب",
+          "desc_en": "10 wings, fries and a drink",
+          "price": 120000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "family-box",
+          "name": "فاميلي بوكس",
+          "name_en": "Family Box",
+          "desc": "4 برجر + بطاطا عائلية + 4 مشروبات",
+          "desc_en": "Four burgers, family fries, four drinks",
+          "price": 250000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shawarma-meal",
+          "name": "وجبة شاورما",
+          "name_en": "Shawarma Meal",
+          "desc": "رابين شاورما + بطاطا + مشروب",
+          "desc_en": "Two shawarma wraps, fries and a drink",
+          "price": 80000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "salads": {
+      "label": "سلطات",
+      "label_en": "Salads",
       "icon": "🥗",
       "items": [
         {
-          "desc": "حمص كريمي مع طحينة وزيت زيتون وحبة صنوبر",
-          "desc_en": "Creamy hummus with tahini, olive oil and pine nuts",
-          "hidden": false,
-          "key": "hummus",
-          "name": "حمص بالطحينة",
-          "name_en": "Hummus with Tahini",
+          "key": "caesar-salad",
+          "name": "سيزر",
+          "name_en": "Caesar",
+          "desc": "خس روماني، دجاج، بارميزان، صوص سيزر",
+          "desc_en": "Romaine, chicken, parmesan, Caesar dressing",
+          "price": 60000,
           "offer": false,
-          "price": 6
+          "hidden": false
         },
         {
-          "desc": "باذنجان مشوي مهروس مع طحينة ورمان",
-          "desc_en": "Grilled eggplant mash with tahini and pomegranate",
-          "hidden": false,
-          "key": "moutabal",
-          "name": "متبل باذنجان",
-          "name_en": "Eggplant Moutabal",
+          "key": "greek-salad",
+          "name": "يونانية",
+          "name_en": "Greek",
+          "desc": "خيار، طماطم، زيتون، فيتا",
+          "desc_en": "Cucumber, tomato, olives, feta",
+          "price": 55000,
           "offer": false,
-          "price": 6.5
+          "hidden": false
         },
         {
-          "desc": "بقدونس مفروم ناعم مع برغل وطماطم وليمون",
-          "desc_en": "Finely chopped parsley with bulgur, tomato and lemon",
-          "hidden": false,
-          "key": "tabbouleh",
-          "name": "تبولة",
-          "name_en": "Tabbouleh",
-          "offer": false,
-          "price": 7
-        },
-        {
-          "desc": "خضار طازجة مع خبز محمص مقرمش ودبس رمان",
-          "desc_en": "Fresh vegetables with crispy toasted bread and pomegranate molasses",
-          "hidden": false,
           "key": "fattoush",
           "name": "فتوش",
           "name_en": "Fattoush",
+          "desc": "خضار مشكلة، خبز محمص، سماق",
+          "desc_en": "Mixed vegetables, crispy bread, sumac",
+          "price": 50000,
           "offer": false,
-          "price": 7
+          "hidden": false
+        },
+        {
+          "key": "tabbouleh",
+          "name": "تبولة",
+          "name_en": "Tabbouleh",
+          "desc": "بقدونس، برغل، ليمون",
+          "desc_en": "Parsley, bulgur, lemon",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chicken-avocado-salad",
+          "name": "دجاج وأفوكادو",
+          "name_en": "Chicken & Avocado",
+          "desc": "دجاج مشوي، أفوكادو، خضار",
+          "desc_en": "Grilled chicken, avocado, greens",
+          "price": 70000,
+          "offer": false,
+          "hidden": false
         }
-      ],
-      "label": "مقبلات",
-      "label_en": "Appetizers"
+      ]
     },
-    "grills": {
-      "icon": "🍢",
+    "desserts": {
+      "label": "حلا",
+      "label_en": "Desserts",
+      "icon": "🍰",
       "items": [
         {
-          "desc": "قطع دجاج متبلة ومشوية على الفحم مع ثوم",
-          "desc_en": "Marinated chicken skewers grilled over charcoal with garlic",
-          "hidden": false,
-          "key": "shish-tawook",
-          "name": "شيش طاووق",
-          "name_en": "Shish Tawook",
+          "key": "chocolate-brownie",
+          "name": "براوني بالشوكولاتة",
+          "name_en": "Chocolate Brownie",
+          "desc": "براوني ساخن + كرة آيس كريم",
+          "desc_en": "Warm brownie with ice cream",
+          "price": 45000,
           "offer": false,
-          "price": 14
+          "hidden": false
         },
         {
-          "desc": "أسياخ لحم بقري مشوية بنكهة مدخنة",
-          "desc_en": "Grilled beef skewers with a smoky flavor",
-          "hidden": false,
-          "key": "beef-skewers",
-          "name": "كباب لحم",
-          "name_en": "Beef Skewers",
+          "key": "cheesecake",
+          "name": "تشيز كيك",
+          "name_en": "Cheesecake",
+          "desc": "قطعة تشيز كيك + صوص الفواكه",
+          "desc_en": "Cheesecake slice with fruit sauce",
+          "price": 50000,
           "offer": false,
-          "price": 16
+          "hidden": false
         },
         {
-          "desc": "لحم مفروم متبل بالبهارات ومشوي على الفحم",
-          "desc_en": "Spiced ground meat grilled over charcoal",
-          "hidden": false,
-          "key": "kafta",
-          "name": "كفتة مشوية",
-          "name_en": "Grilled Kafta",
+          "key": "lotus-cheesecake",
+          "name": "تشيز كيك لوتس",
+          "name_en": "Lotus Cheesecake",
+          "desc": "تشيز كيك بالبسكوت الكراميلي",
+          "desc_en": "Caramelized biscuit cheesecake",
+          "price": 55000,
           "offer": false,
-          "price": 14
+          "hidden": false
         },
         {
-          "desc": "تشكيلة من الشيش طاووق والكباب والكفتة",
-          "desc_en": "A selection of shish tawook, beef skewers and kafta",
-          "hidden": false,
-          "key": "mixed-grill",
-          "name": "مشاوي مشكلة",
-          "name_en": "Mixed Grill",
+          "key": "waffle",
+          "name": "وافل",
+          "name_en": "Waffle",
+          "desc": "وافل بالشوكولاتة والفواكه",
+          "desc_en": "Waffle with chocolate and fruits",
+          "price": 55000,
           "offer": false,
-          "popular": true,
-          "price": 22
+          "hidden": false
+        },
+        {
+          "key": "pancakes",
+          "name": "بان كيك",
+          "name_en": "Pancakes",
+          "desc": "3 قطع بالعسل أو الشوكولاتة",
+          "desc_en": "Three pieces with honey or chocolate",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "nutella-crepe",
+          "name": "كريب نوتيلا",
+          "name_en": "Nutella Crepe",
+          "desc": "كريب بالشوكولاتة والبندق",
+          "desc_en": "Chocolate hazelnut crepe",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "ice-cream",
+          "name": "آيس كريم",
+          "name_en": "Ice Cream",
+          "desc": "3 كرات حسب الاختيار",
+          "desc_en": "Three scoops of your choice",
+          "price": 30000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "fruit-salad",
+          "name": "فواكه مشكلة",
+          "name_en": "Fruit Salad",
+          "desc": "فواكه موسمية طازجة",
+          "desc_en": "Fresh seasonal fruits",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
         }
-      ],
-      "label": "مشاوي",
-      "label_en": "Grills"
+      ]
     },
-    "hot_drinks": {
+    "hot-drinks": {
+      "label": "مشروبات ساخنة",
+      "label_en": "Hot Drinks",
       "icon": "☕",
       "items": [
         {
-          "desc": "قهوة عربية أصيلة تقدم مع التمر",
-          "desc_en": "Authentic Arabic coffee served with dates",
-          "hidden": false,
-          "key": "arabic-coffee",
-          "name": "قهوة عربية",
-          "name_en": "Arabic Coffee",
+          "key": "espresso",
+          "name": "إسبريسو",
+          "name_en": "Espresso",
+          "desc": "شوت مركّز",
+          "desc_en": "A concentrated single shot",
+          "price": 25000,
           "offer": false,
-          "price": 4
+          "hidden": false
         },
         {
-          "desc": "شاي أسود مع أوراق نعناع طازجة",
-          "desc_en": "Black tea with fresh mint leaves",
-          "hidden": false,
-          "key": "mint-tea",
-          "name": "شاي بالنعناع",
-          "name_en": "Mint Tea",
+          "key": "double-espresso",
+          "name": "دبل إسبريسو",
+          "name_en": "Double Espresso",
+          "desc": "شوتان مركّزان",
+          "desc_en": "Two concentrated shots",
+          "price": 35000,
           "offer": false,
-          "price": 3.5
+          "hidden": false
         },
         {
-          "desc": "قهوة تركية تقليدية مع قطعة راحة الحلقوم",
-          "desc_en": "Traditional Turkish coffee with a piece of Turkish delight",
-          "hidden": false,
+          "key": "americano",
+          "name": "أمريكانو",
+          "name_en": "Americano",
+          "desc": "إسبريسو مع ماء ساخن",
+          "desc_en": "Espresso with hot water",
+          "price": 30000,
+          "offer": false,
+          "hidden": false
+        },
+        {
           "key": "turkish-coffee",
           "name": "قهوة تركية",
           "name_en": "Turkish Coffee",
+          "desc": "قهوة عربية على الطريقة التقليدية",
+          "desc_en": "Arabic coffee brewed the traditional way",
+          "price": 35000,
           "offer": false,
-          "price": 4
+          "hidden": false
         },
         {
-          "desc": "مشروب ساخن كريمي مع قرفة وفستق وجوز هند",
-          "desc_en": "Creamy hot drink with cinnamon, pistachio and coconut",
-          "hidden": false,
+          "key": "cappuccino",
+          "name": "كابتشينو",
+          "name_en": "Cappuccino",
+          "desc": "إسبريسو مع الحليب المرغّن",
+          "desc_en": "Espresso with frothed milk",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "latte",
+          "name": "لاتيه",
+          "name_en": "Latte",
+          "desc": "حليب مخملي مع إسبريسو",
+          "desc_en": "Velvety milk with espresso",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "mocha",
+          "name": "موكا",
+          "name_en": "Mocha",
+          "desc": "شوكولاتة وإسبريسو مع الحليب",
+          "desc_en": "Chocolate and espresso with milk",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "hot-chocolate",
+          "name": "هوت شوكليت",
+          "name_en": "Hot Chocolate",
+          "desc": "شوكولاتة بلجيكية ساخنة",
+          "desc_en": "Hot Belgian chocolate",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "tea",
+          "name": "شاي",
+          "name_en": "Tea",
+          "desc": "شاي أسود بالنعناع",
+          "desc_en": "Black tea with mint",
+          "price": 25000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "green-tea",
+          "name": "شاي أخضر",
+          "name_en": "Green Tea",
+          "desc": "شاي أخضر صافٍ",
+          "desc_en": "Pure green tea",
+          "price": 30000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "herbal-tea",
+          "name": "شاي أعشاب",
+          "name_en": "Herbal Tea",
+          "desc": "زنجبيل وليمون",
+          "desc_en": "Ginger and lemon",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "cinnamon-drink",
+          "name": "مشروب القرفة",
+          "name_en": "Cinnamon Drink",
+          "desc": "قرفة دافئة بالحليب",
+          "desc_en": "Warm cinnamon with milk",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
           "key": "sahlab",
           "name": "سحلب",
           "name_en": "Sahlab",
+          "desc": "سحلب كريمي بالمكسرات",
+          "desc_en": "Creamy sahlab with nuts",
+          "price": 50000,
           "offer": false,
-          "price": 5
+          "hidden": false
         }
-      ],
-      "label": "مشروبات ساخنة",
-      "label_en": "Hot Drinks"
+      ]
+    },
+    "cold-coffee": {
+      "label": "قهوة باردة",
+      "label_en": "Cold Coffee",
+      "icon": "🧊",
+      "items": [
+        {
+          "key": "iced-americano",
+          "name": "آيس أمريكانو",
+          "name_en": "Iced Americano",
+          "desc": "إسبريسو مع الماء والثلج",
+          "desc_en": "Espresso over ice and water",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "iced-latte",
+          "name": "آيس لاتيه",
+          "name_en": "Iced Latte",
+          "desc": "حليب بارد مع إسبريسو",
+          "desc_en": "Cold milk with espresso",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "iced-mocha",
+          "name": "آيس موكا",
+          "name_en": "Iced Mocha",
+          "desc": "موكا باردة بالثلج",
+          "desc_en": "Cold mocha over ice",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "caramel-frappe",
+          "name": "فرابيه كراميل",
+          "name_en": "Caramel Frappe",
+          "desc": "قهوة مخفوقة بالكراميل",
+          "desc_en": "Blended coffee with caramel",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "vanilla-frappe",
+          "name": "فرابيه فانيلا",
+          "name_en": "Vanilla Frappe",
+          "desc": "قهوة مخفوقة بالفانيلا",
+          "desc_en": "Blended coffee with vanilla",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "caramel-macchiato",
+          "name": "كراميل ميكياتو",
+          "name_en": "Caramel Macchiato",
+          "desc": "طبقات الحليب والكراميل",
+          "desc_en": "Milk and caramel layers",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "iced-spanish-latte",
+          "name": "آيس إسبانيش لاتيه",
+          "name_en": "Iced Spanish Latte",
+          "desc": "حليب مُحلّى بالحليب المكثف",
+          "desc_en": "Milk sweetened with condensed milk",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "cold-brew",
+          "name": "كولد برو",
+          "name_en": "Cold Brew",
+          "desc": "تحضير بارد لـ 12 ساعة",
+          "desc_en": "12-hour cold extraction",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
     },
     "juices": {
+      "label": "عصائر فريش",
+      "label_en": "Fresh Juices",
+      "icon": "🍊",
+      "items": [
+        {
+          "key": "orange-juice",
+          "name": "برتقال",
+          "name_en": "Orange",
+          "desc": "برتقال طازج",
+          "desc_en": "Fresh oranges",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "lemon-mint",
+          "name": "ليمون بالنعناع",
+          "name_en": "Lemon Mint",
+          "desc": "ليمون مع النعناع الطازج",
+          "desc_en": "Lemon with fresh mint",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "strawberry-juice",
+          "name": "فراولة",
+          "name_en": "Strawberry",
+          "desc": "فراولة طازجة",
+          "desc_en": "Fresh strawberries",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "mango-juice",
+          "name": "مانجا",
+          "name_en": "Mango",
+          "desc": "مانجا طازجة",
+          "desc_en": "Fresh mango",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pineapple-juice",
+          "name": "أناناس",
+          "name_en": "Pineapple",
+          "desc": "أناناس طازج",
+          "desc_en": "Fresh pineapple",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "watermelon-juice",
+          "name": "بطيخة",
+          "name_en": "Watermelon",
+          "desc": "بطيخة حمراء طازجة",
+          "desc_en": "Fresh watermelon",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pomegranate-juice",
+          "name": "رمان",
+          "name_en": "Pomegranate",
+          "desc": "رمان طازج",
+          "desc_en": "Fresh pomegranate",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "kiwi-juice",
+          "name": "كيوي",
+          "name_en": "Kiwi",
+          "desc": "كيوي طازج",
+          "desc_en": "Fresh kiwi",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "carrot-juice",
+          "name": "جزر",
+          "name_en": "Carrot",
+          "desc": "جزر طازج",
+          "desc_en": "Fresh carrots",
+          "price": 35000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "mixed-fruit-juice",
+          "name": "فواكه مشكلة",
+          "name_en": "Mixed Fruits",
+          "desc": "خلطة الموسم",
+          "desc_en": "Seasonal blend",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "cocktails": {
+      "label": "كوكتيلات",
+      "label_en": "Cocktails",
+      "icon": "🍹",
+      "items": [
+        {
+          "key": "bite-tropical",
+          "name": "بيت تروبيكال",
+          "name_en": "BITE Tropical",
+          "desc": "مانجا وأناناس ومارشينو — توقيعنا",
+          "desc_en": "Mango, pineapple and maraschino — our signature",
+          "price": 60000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "banana-cocktail",
+          "name": "كوكتيل موز",
+          "name_en": "Banana Cocktail",
+          "desc": "موز كريمي مع العسل",
+          "desc_en": "Creamy banana with honey",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "mango-passion",
+          "name": "مانجا باشون",
+          "name_en": "Mango Passion",
+          "desc": "مانجا وباشون فروت",
+          "desc_en": "Mango and passion fruit",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "blue-lagoon",
+          "name": "بلو لاجون",
+          "name_en": "Blue Lagoon",
+          "desc": "أزرق منعش بالليمون",
+          "desc_en": "Refreshing blue with lemon",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "classic-mojito",
+          "name": "موهيتو كلاسيك",
+          "name_en": "Classic Mojito",
+          "desc": "نعناع وليمون وصودا",
+          "desc_en": "Mint, lemon and soda",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "strawberry-mojito",
+          "name": "موهيتو فراولة",
+          "name_en": "Strawberry Mojito",
+          "desc": "نعناع وفراولة",
+          "desc_en": "Mint and strawberry",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "passion-mojito",
+          "name": "موهيتو باشون",
+          "name_en": "Passion Mojito",
+          "desc": "نعناع وباشون فروت",
+          "desc_en": "Mint and passion fruit",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pina-colada",
+          "name": "بينا كولادا",
+          "name_en": "Piña Colada",
+          "desc": "جوز الهند والأناناس",
+          "desc_en": "Coconut and pineapple",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "red-sunset",
+          "name": "غروب أحمر",
+          "name_en": "Red Sunset",
+          "desc": "تدرج الفراولة والبرتقال",
+          "desc_en": "Strawberry and orange gradient",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "green-paradise",
+          "name": "جنة أخضر",
+          "name_en": "Green Paradise",
+          "desc": "كيوي وتفاح أخضر ونعناع",
+          "desc_en": "Kiwi, green apple and mint",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "oreo-milkshake",
+          "name": "ميلك شيك أوريو",
+          "name_en": "Oreo Milkshake",
+          "desc": "بسكوت الأوريو مع الآيس كريم",
+          "desc_en": "Oreo cookies with ice cream",
+          "price": 50000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "lotus-milkshake",
+          "name": "ميلك شيك لوتس",
+          "name_en": "Lotus Milkshake",
+          "desc": "لوتس مع الآيس كريم",
+          "desc_en": "Lotus biscuits with ice cream",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "chocolate-milkshake",
+          "name": "ميلك شيك شوكولاتة",
+          "name_en": "Chocolate Milkshake",
+          "desc": "شوكولاتة غنية مع الآيس كريم",
+          "desc_en": "Rich chocolate with ice cream",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "vanilla-milkshake",
+          "name": "ميلك شيك فانيلا",
+          "name_en": "Vanilla Milkshake",
+          "desc": "فانيلا كلاسيك",
+          "desc_en": "Classic vanilla",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "pistachio-milkshake",
+          "name": "ميلك شيك فستق",
+          "name_en": "Pistachio Milkshake",
+          "desc": "فستق حلبي مع الآيس كريم",
+          "desc_en": "Aleppo pistachio with ice cream",
+          "price": 55000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
+    },
+    "soft-drinks": {
+      "label": "مشروبات غازية",
+      "label_en": "Soft Drinks",
       "icon": "🥤",
       "items": [
         {
-          "desc": "عصير برتقال طازج معصور فوراً",
-          "desc_en": "Freshly squeezed orange juice",
-          "hidden": false,
-          "key": "orange-juice",
-          "name": "عصير برتقال",
-          "name_en": "Orange Juice",
+          "key": "cola",
+          "name": "كولا",
+          "name_en": "Cola",
+          "desc": "علبة باردة",
+          "desc_en": "Cold can",
+          "price": 15000,
           "offer": false,
-          "price": 5
+          "hidden": false
         },
         {
-          "desc": "عصير مانجا طبيعي منعش وكثيف القوام",
-          "desc_en": "Natural mango juice, refreshing and thick",
-          "hidden": false,
-          "key": "mango-juice",
-          "name": "عصير مانجا",
-          "name_en": "Mango Juice",
+          "key": "orange-soda",
+          "name": "سودا برتقال",
+          "name_en": "Orange Soda",
+          "desc": "برتقال غازي",
+          "desc_en": "Sparkling orange",
+          "price": 15000,
           "offer": false,
-          "price": 5.5
+          "hidden": false
         },
         {
-          "desc": "عصير فراولة طازج بدون إضافات",
-          "desc_en": "Fresh strawberry juice, no additives",
-          "hidden": false,
-          "key": "strawberry-juice",
-          "name": "عصير فراولة",
-          "name_en": "Strawberry Juice",
+          "key": "lemon-soda",
+          "name": "سودا ليمون",
+          "name_en": "Lemon Soda",
+          "desc": "ليمون غازي",
+          "desc_en": "Sparkling lemon",
+          "price": 15000,
           "offer": false,
-          "price": 5.5
+          "hidden": false
         },
         {
-          "desc": "ليمون طازج مع أوراق نعناع وثلج مجروش",
-          "desc_en": "Fresh lemon with mint leaves and crushed ice",
-          "hidden": false,
-          "key": "mint-lemonade",
-          "name": "ليموناضة بالنعناع",
-          "name_en": "Mint Lemonade",
+          "key": "energy-drink",
+          "name": "مشروب طاقة",
+          "name_en": "Energy Drink",
+          "desc": "علبة باردة",
+          "desc_en": "Cold can",
+          "price": 25000,
           "offer": false,
-          "price": 5
+          "hidden": false
+        },
+        {
+          "key": "still-water",
+          "name": "مياه",
+          "name_en": "Still Water",
+          "desc": "قارورة كبيرة",
+          "desc_en": "Large bottle",
+          "price": 5000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "sparkling-water",
+          "name": "مياه فوارة",
+          "name_en": "Sparkling Water",
+          "desc": "قارورة فوارة",
+          "desc_en": "Sparkling bottle",
+          "price": 10000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "iced-tea",
+          "name": "آيس تي",
+          "name_en": "Iced Tea",
+          "desc": "شاي مثلج بالخوخ",
+          "desc_en": "Peach iced tea",
+          "price": 30000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "tonic-water",
+          "name": "تونك ووتر",
+          "name_en": "Tonic Water",
+          "desc": "بارد مع الليمون",
+          "desc_en": "Cold with lime",
+          "price": 20000,
+          "offer": false,
+          "hidden": false
         }
-      ],
-      "label": "عصائر طبيعية",
-      "label_en": "Fresh Juices"
+      ]
+    },
+    "shisha": {
+      "label": "شيشة",
+      "label_en": "Shisha",
+      "icon": "💨",
+      "items": [
+        {
+          "key": "shisha-double-apple",
+          "name": "تفاحة مزدوجة",
+          "name_en": "Double Apple",
+          "desc": "التفضيل الكلاسيكي",
+          "desc_en": "The classic favorite",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shisha-grape-mint",
+          "name": "عنب بالنعناع",
+          "name_en": "Grape Mint",
+          "desc": "عنب منعش بالنعناع",
+          "desc_en": "Cool grape with mint",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shisha-lemon-mint",
+          "name": "ليمون بالنعناع",
+          "name_en": "Lemon Mint",
+          "desc": "حمضية منعشة",
+          "desc_en": "Refreshing citrus",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shisha-blueberry",
+          "name": "بلوبيري",
+          "name_en": "Blueberry",
+          "desc": "حلاوة توتية",
+          "desc_en": "Berry sweetness",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shisha-watermelon-mint",
+          "name": "بطيخة بالنعناع",
+          "name_en": "Watermelon Mint",
+          "desc": "صيفي منعش",
+          "desc_en": "Summer refresher",
+          "price": 40000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shisha-gum-mint",
+          "name": "علكة بالنعناع",
+          "name_en": "Gum Mint",
+          "desc": "نكهة علكة منعشة",
+          "desc_en": "Fresh gum flavor",
+          "price": 45000,
+          "offer": false,
+          "hidden": false
+        },
+        {
+          "key": "shisha-love-66",
+          "name": "لاف 66",
+          "name_en": "Love 66",
+          "desc": "الخلطة الأكثر طلباً",
+          "desc_en": "The most requested mix",
+          "price": 50000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "shisha-bite-special",
+          "name": "بيت سبيشال",
+          "name_en": "BITE Special",
+          "desc": "خلطة الشيف السرية",
+          "desc_en": "The chef's secret mix",
+          "price": 55000,
+          "offer": true,
+          "hidden": false
+        },
+        {
+          "key": "shisha-premium",
+          "name": "شيشة بريميوم",
+          "name_en": "Premium Shisha",
+          "desc": "تجهيز VIP مع فواكه",
+          "desc_en": "VIP setup with a fruit bowl",
+          "price": 70000,
+          "offer": false,
+          "hidden": false
+        }
+      ]
     }
   },
   "images": {
-    "hummus": "img/hummus.jpg",
-    "moutabal": "img/moutabal.jpg",
-    "tabbouleh": "img/tabbouleh.jpg",
-    "fattoush": "img/fattoush.jpg",
-    "shish-tawook": "img/shish-tawook.jpg",
-    "beef-skewers": "img/beef-skewers.jpg",
-    "kafta": "img/kafta.jpg",
-    "mixed-grill": "img/mixed-grill.jpg",
-    "orange-juice": "img/orange-juice.jpg",
-    "mango-juice": "img/mango-juice.jpg",
-    "strawberry-juice": "img/strawberry-juice.jpg",
-    "mint-lemonade": "img/mint-lemonade.jpg",
-    "arabic-coffee": "img/arabic-coffee.jpg",
-    "mint-tea": "img/mint-tea.jpg",
-    "turkish-coffee": "img/turkish-coffee.jpg",
-    "sahlab": "img/sahlab.jpg",
-    "hero-bg": "img/hero-bg.jpg",
-    "default-item": "img/default-item.jpg"
+    "offer-coffee-dessert": "img/offer-coffee-dessert.webp",
+    "offer-burger-cola": "img/offer-burger-cola.webp",
+    "offer-burger-night": "img/offer-burger-night.webp",
+    "offer-couple-moment": "img/couple-combo.webp",
+    "offer-friends-time": "img/friends-combo.webp",
+    "offer-cocktail-duo": "img/offer-cocktail-duo.webp",
+    "offer-family-meal": "img/family-box.webp",
+    "offer-lounge": "img/offer-lounge.webp",
+    "burger-classic": "img/burger-classic.webp",
+    "burger-double-smash": "img/burger-double-smash.webp",
+    "burger-cheese": "img/burger-cheese.webp",
+    "burger-fire": "img/burger-fire.webp",
+    "burger-mushroom": "img/burger-mushroom.webp",
+    "burger-bbq": "img/burger-bbq.webp",
+    "burger-triple-cheese": "img/burger-triple-cheese.webp",
+    "burger-signature": "img/burger-signature.webp",
+    "burger-chicken-cheese": "img/chicken-cheese-burger.webp",
+    "zinger-burger": "img/zinger-burger.webp",
+    "chicken-crispy": "img/chicken-crispy.webp",
+    "chicken-spicy": "img/chicken-spicy.webp",
+    "chicken-grilled": "img/chicken-grilled.webp",
+    "wrap-chicken": "img/wrap-chicken.webp",
+    "chicken-fajita": "img/chicken-fajita.webp",
+    "crispy-chicken-wrap": "img/crispy-chicken-wrap.webp",
+    "club-sandwich": "img/club-sandwich.webp",
+    "philly-steak": "img/philly-steak.webp",
+    "hot-dog": "img/hot-dog.webp",
+    "chicken-shawarma": "img/chicken-shawarma.webp",
+    "meat-shawarma": "img/meat-shawarma.webp",
+    "shawarma-super": "img/shawarma-meal.webp",
+    "pizza-margherita": "img/pizza-margherita.webp",
+    "pizza-pepperoni": "img/pizza-pepperoni.webp",
+    "pizza-four-cheese": "img/pizza-four-cheese.webp",
+    "pizza-vegetarian": "img/pizza-vegetarian.webp",
+    "pizza-chicken-bbq": "img/pizza-chicken-bbq.webp",
+    "pizza-bite-special": "img/pizza-bite-special.webp",
+    "french-fries": "img/french-fries.webp",
+    "cheese-fries": "img/cheese-fries.webp",
+    "loaded-fries": "img/loaded-fries.webp",
+    "seasoned-fries": "img/seasoned-fries.webp",
+    "onion-rings": "img/onion-rings.webp",
+    "mozzarella-sticks": "img/mozzarella-sticks.webp",
+    "chicken-nuggets": "img/chicken-nuggets.webp",
+    "hummus": "img/hummus.webp",
+    "mutabbal": "img/mutabbal.webp",
+    "classic-burger-meal": "img/classic-burger-meal.webp",
+    "double-smash-meal": "img/double-smash-meal.webp",
+    "crispy-chicken-meal": "img/crispy-chicken-meal.webp",
+    "chicken-wings-meal": "img/chicken-wings-meal.webp",
+    "family-box": "img/family-box.webp",
+    "shawarma-meal": "img/shawarma-meal.webp",
+    "caesar-salad": "img/caesar-salad.webp",
+    "greek-salad": "img/greek-salad.webp",
+    "fattoush": "img/fattoush.webp",
+    "tabbouleh": "img/tabbouleh.webp",
+    "chicken-avocado-salad": "img/chicken-avocado-salad.webp",
+    "chocolate-brownie": "img/chocolate-brownie.webp",
+    "cheesecake": "img/cheesecake.webp",
+    "lotus-cheesecake": "img/lotus-cheesecake.webp",
+    "waffle": "img/waffle.webp",
+    "pancakes": "img/pancakes.webp",
+    "nutella-crepe": "img/nutella-crepe.webp",
+    "ice-cream": "img/ice-cream.webp",
+    "fruit-salad": "img/fruit-salad.webp",
+    "espresso": "img/espresso.webp",
+    "double-espresso": "img/espresso.webp",
+    "americano": "img/americano.webp",
+    "turkish-coffee": "img/turkish-coffee.webp",
+    "cappuccino": "img/cappuccino.webp",
+    "latte": "img/latte.webp",
+    "mocha": "img/mocha.webp",
+    "hot-chocolate": "img/hot-chocolate.webp",
+    "tea": "img/tea.webp",
+    "green-tea": "img/green-tea.webp",
+    "herbal-tea": "img/herbal-tea.webp",
+    "cinnamon-drink": "img/cinnamon-drink.webp",
+    "sahlab": "img/sahlab.webp",
+    "iced-americano": "img/iced-americano.webp",
+    "iced-latte": "img/iced-latte.webp",
+    "iced-mocha": "img/iced-mocha.webp",
+    "caramel-frappe": "img/caramel-frappe.webp",
+    "vanilla-frappe": "img/vanilla-frappe.webp",
+    "caramel-macchiato": "img/caramel-macchiato.webp",
+    "iced-spanish-latte": "img/iced-spanish-latte.webp",
+    "cold-brew": "img/cold-brew.webp",
+    "orange-juice": "img/orange-juice.webp",
+    "lemon-mint": "img/lemon-mint.webp",
+    "strawberry-juice": "img/strawberry-juice.webp",
+    "mango-juice": "img/mango-juice.webp",
+    "pineapple-juice": "img/pineapple-juice.webp",
+    "watermelon-juice": "img/watermelon-juice.webp",
+    "pomegranate-juice": "img/pomegranate-juice.webp",
+    "kiwi-juice": "img/kiwi-juice.webp",
+    "carrot-juice": "img/carrot-juice.webp",
+    "mixed-fruit-juice": "img/mixed-fruit-juice.webp",
+    "bite-tropical": "img/bite-tropical.webp",
+    "banana-cocktail": "img/vanilla-milkshake.webp",
+    "mango-passion": "img/mango-passion.webp",
+    "blue-lagoon": "img/blue-lagoon.webp",
+    "classic-mojito": "img/lemon-mint.webp",
+    "strawberry-mojito": "img/strawberry-mojito.webp",
+    "passion-mojito": "img/passion-mojito.webp",
+    "pina-colada": "img/pina-colada.webp",
+    "red-sunset": "img/offer-cocktail-duo.webp",
+    "green-paradise": "img/kiwi-juice.webp",
+    "oreo-milkshake": "img/oreo-milkshake.webp",
+    "lotus-milkshake": "img/lotus-milkshake.webp",
+    "chocolate-milkshake": "img/oreo-milkshake.webp",
+    "vanilla-milkshake": "img/vanilla-milkshake.webp",
+    "pistachio-milkshake": "img/pistachio-milkshake.webp",
+    "cola": "img/cola.webp",
+    "orange-soda": "img/orange-soda.webp",
+    "lemon-soda": "img/lemon-soda.webp",
+    "energy-drink": "img/energy-drink.webp",
+    "still-water": "img/sparkling-water.webp",
+    "sparkling-water": "img/sparkling-water.webp",
+    "iced-tea": "img/iced-tea.webp",
+    "tonic-water": "img/tonic-water.webp",
+    "shisha-double-apple": "img/shisha-double-apple.webp",
+    "shisha-grape-mint": "img/shisha-grape-mint.webp",
+    "shisha-lemon-mint": "img/shisha-lemon-mint.webp",
+    "shisha-blueberry": "img/shisha-blueberry.webp",
+    "shisha-watermelon-mint": "img/shisha-watermelon-mint.webp",
+    "shisha-gum-mint": "img/shisha-gum-mint.webp",
+    "shisha-love-66": "img/shisha-love-66.webp",
+    "shisha-bite-special": "img/shisha-bite-special.webp",
+    "shisha-premium": "img/shisha-premium.webp",
+    "default-item": "img/hero-feast.webp"
   },
   "settings": {
-    "exchange_rate_syp_per_usd": 13000,
-    "default_currency": "usd"
+    "exchange_rate_syp_per_usd": 130,
+    "default_currency": "syp",
+    "note": "أسعار مقترحة بالليرة السورية الجديدة — قابلة للتعديل. Suggested prices in new-SYP denomination — editable.",
+    "note_en": "Suggested prices in the new Syrian pound denomination — editable."
   }
 }
