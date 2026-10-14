@@ -56,16 +56,6 @@
           "hidden": false
         },
         {
-          "key": "offer-cocktail-duo",
-          "name": "كوكتيل × 2",
-          "name_en": "Cocktail Duo",
-          "desc": "اختر أي كوكتيلين من عصائر فريش أو موهيتو",
-          "desc_en": "Pick any two cocktails from fresh juices or mojitos",
-          "price": 180000,
-          "offer": true,
-          "hidden": false
-        },
-        {
           "key": "offer-family-meal",
           "name": "فاميلي ميل",
           "name_en": "Family Meal",
@@ -73,7 +63,7 @@
           "desc_en": "Two classic burgers, crispy chicken basket, family fries and four drinks",
           "price": 400000,
           "offer": true,
-          "hidden": true
+          "hidden": false
         },
         {
           "key": "offer-lounge",
@@ -91,7 +81,7 @@
           "name_en": "Hadeel",
           "desc": "",
           "desc_en": "",
-          "price": 100000,
+          "price": 1000000,
           "hidden": false
         }
       ]
