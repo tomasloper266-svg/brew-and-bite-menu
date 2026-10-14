@@ -73,7 +73,7 @@
           "desc_en": "Two classic burgers, crispy chicken basket, family fries and four drinks",
           "price": 400000,
           "offer": true,
-          "hidden": false
+          "hidden": true
         },
         {
           "key": "offer-lounge",
