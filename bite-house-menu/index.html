@@ -379,6 +379,13 @@
   .footer-lines span{ margin:0 4px; }
   .footer-lines .dot{ color:var(--accent); }
   .footer .qr-note{ margin-top:12px; opacity:0.65; font-size:11px; letter-spacing:0.4px; }
+  .admin-btn{
+    display:inline-flex; align-items:center; gap:6px; margin-top:18px;
+    padding:9px 28px; border:1.5px solid var(--accent); border-radius:999px;
+    color:var(--accent-deep); background:var(--paper); font-size:13px; font-weight:700;
+    text-decoration:none;
+  }
+  .admin-btn:active{ background:var(--accent-soft); }
 
   html[dir="ltr"] body{ font-family:'Inter','Cairo',sans-serif; }
   html[dir="ltr"] .brand-name{ font-family:'Playfair Display','Amiri',serif; }
@@ -438,6 +445,7 @@
     <span id="footerHoursNote">كافيه • كيتشين • لاونج</span>
   </div>
   <div class="qr-note" id="qrNote">قائمة رقمية · امسح · تصفح · استمتع</div>
+  <a class="admin-btn" href="admin.html">⚙️ لوحة تحكم</a>
 </div>
 
 <script>

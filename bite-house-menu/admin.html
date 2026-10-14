@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>لوحة تحكم بايت هاوس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f1e6; --paper:#ffffff; --paper-2:#fffaf1;
+    --ink:#2b2620; --ink-soft:#8a7d6a;
+    --accent:#e0701f; --accent-deep:#b4520e; --accent-soft:#f9e3cf;
+    --line:#e9dcc7; --danger:#c0392b; --ok:#1e8e4e;
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:'Cairo',system-ui,sans-serif; background:var(--bg); color:var(--ink);
+    min-height:100vh; padding-bottom:96px;
+  }
+  input,button,textarea{ font-family:inherit; }
+
+  /* ---------- login ---------- */
+  #loginView{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .login-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:18px;
+    padding:34px 26px 30px; width:100%; max-width:380px; text-align:center;
+    box-shadow:0 14px 40px rgba(43,38,32,.08);
+  }
+  .login-mark{ color:var(--accent); letter-spacing:6px; font-size:12px; margin-bottom:10px; }
+  .login-card h1{ margin:0 0 4px; font-size:26px; font-weight:800; }
+  .login-card p{ margin:0 0 22px; color:var(--ink-soft); font-size:13px; }
+  .login-card input{
+    width:100%; padding:13px 16px; border:1.5px solid var(--line); border-radius:12px;
+    font-size:16px; background:var(--paper-2); outline:none; text-align:center;
+  }
+  .login-card input:focus{ border-color:var(--accent); }
+  .login-card button{
+    width:100%; margin-top:14px; padding:13px; border:none; border-radius:12px;
+    background:var(--accent); color:#fff; font-size:16px; font-weight:700; cursor:pointer;
+  }
+  .login-card button:active{ background:var(--accent-deep); }
+  .login-err{ color:var(--danger); font-size:13px; min-height:18px; margin:10px 0 0; }
+
+  /* ---------- panel ---------- */
+  header.top{
+    position:sticky; top:0; z-index:20; background:rgba(247,241,230,.94); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  header.top h1{ margin:0; font-size:17px; font-weight:800; }
+  header.top .brand-mark{ color:var(--accent); font-size:10px; letter-spacing:4px; display:block; }
+  .chip{
+    font-size:11px; font-weight:700; padding:5px 12px; border-radius:999px;
+    background:var(--paper); border:1px solid var(--line); color:var(--ink-soft); white-space:nowrap;
+  }
+  .chip.dirty{ background:#fff3e6; border-color:var(--accent); color:var(--accent-deep); }
+  .chip.saving{ background:var(--accent-soft); border-color:var(--accent); color:var(--accent-deep); }
+  .chip.ok{ background:#e5f5ec; border-color:var(--ok); color:var(--ok); }
+
+  main{ padding:16px; max-width:720px; margin:0 auto; }
+
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:16px; margin-bottom:14px;
+  }
+  .rate-card{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; border-width:2px; border-color:var(--accent); }
+  .rate-card .lbl{ font-weight:800; font-size:15px; }
+  .rate-card .lbl small{ display:block; color:var(--ink-soft); font-weight:600; font-size:11.5px; margin-top:2px; }
+  #rateInput{
+    width:130px; padding:11px 14px; font-size:20px; font-weight:800; text-align:center;
+    border:2px solid var(--accent); border-radius:12px; background:var(--paper-2); outline:none;
+  }
+  .rate-unit{ font-weight:700; color:var(--ink-soft); font-size:13px; }
+
+  #search{
+    width:100%; padding:12px 16px; border:1.5px solid var(--line); border-radius:12px;
+    font-size:15px; background:var(--paper); outline:none; margin-bottom:14px;
+  }
+  #search:focus{ border-color:var(--accent); }
+
+  details.cat{ background:var(--paper); border:1px solid var(--line); border-radius:16px; margin-bottom:10px; overflow:hidden; }
+  details.cat summary{
+    list-style:none; cursor:pointer; padding:14px 16px; display:flex; align-items:center; gap:10px;
+    font-weight:800; font-size:15px; user-select:none;
+  }
+  details.cat summary::-webkit-details-marker{ display:none; }
+  details.cat summary .ico{ font-size:18px; }
+  details.cat summary .cnt{
+    margin-inline-start:auto; background:var(--accent-soft); color:var(--accent-deep);
+    font-size:11px; font-weight:800; padding:3px 10px; border-radius:999px;
+  }
+  details.cat summary .arr{ color:var(--ink-soft); transition:transform .15s; font-size:12px; }
+  details.cat[open] summary .arr{ transform:rotate(90deg); }
+  details.cat summary .hid{ color:var(--danger); font-size:11px; font-weight:700; }
+
+  .item{ padding:12px 14px 14px; border-top:1px solid var(--line); }
+  .item.off .item-main{ opacity:.45; }
+  .item-main{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .name-ar{ flex:1 1 150px; min-width:140px; }
+  .name-en{ flex:1 1 150px; min-width:140px; }
+  .item input.txt{
+    width:100%; padding:9px 12px; border:1.5px solid var(--line); border-radius:10px;
+    font-size:14px; background:var(--paper-2); outline:none;
+  }
+  .item input.txt:focus{ border-color:var(--accent); }
+  .price-wrap{ display:flex; align-items:center; gap:6px; }
+  .item input.price{
+    width:110px; padding:9px 12px; font-size:15px; font-weight:800; text-align:center;
+    border:1.5px solid var(--accent); border-radius:10px; background:var(--paper-2); outline:none;
+  }
+  .cur{ font-size:12px; font-weight:700; color:var(--ink-soft); }
+  .lbl-mini{ font-size:10.5px; color:var(--ink-soft); display:block; margin-bottom:3px; font-weight:700; }
+
+  /* availability switch */
+  .avail{ display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none; }
+  .avail input{ display:none; }
+  .avail .sw{
+    width:46px; height:26px; border-radius:999px; background:#d8cdbb; position:relative; transition:background .15s; flex:none;
+  }
+  .avail .sw::after{
+    content:''; position:absolute; top:3px; inset-inline-start:3px; width:20px; height:20px;
+    background:#fff; border-radius:50%; transition:transform .15s; box-shadow:0 1px 3px rgba(0,0,0,.25);
+  }
+  .avail input:checked + .sw{ background:var(--ok); }
+  .avail input:checked + .sw::after{ transform:translateX(-20px); }
+  .avail .sw-txt{ font-size:12px; font-weight:800; }
+  .avail.on .sw-txt{ color:var(--ok); }
+  .avail.off .sw-txt{ color:var(--danger); }
+  .off-badge{ font-size:10px; font-weight:800; color:var(--danger); background:#fdecea; padding:2px 8px; border-radius:999px; }
+
+  /* sticky save bar */
+  .save-bar{
+    position:fixed; bottom:0; inset-inline:0; z-index:30;
+    background:rgba(255,250,241,.97); border-top:1px solid var(--line);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    display:flex; align-items:center; gap:12px; justify-content:center; flex-wrap:wrap;
+  }
+  #saveBtn{
+    padding:14px 34px; border:none; border-radius:14px; background:var(--accent); color:#fff;
+    font-size:17px; font-weight:800; cursor:pointer; box-shadow:0 6px 18px rgba(224,112,31,.35);
+  }
+  #saveBtn:disabled{ opacity:.6; cursor:default; }
+  .save-note{ font-size:12px; color:var(--ink-soft); font-weight:600; width:100%; text-align:center; min-height:16px; margin:0; }
+  .save-note.ok{ color:var(--ok); }
+  .save-note.err{ color:var(--danger); }
+
+  .top-actions{ display:flex; gap:8px; }
+  .mini-btn{
+    border:1.5px solid var(--line); background:var(--paper); color:var(--ink-soft);
+    border-radius:10px; padding:7px 12px; font-size:12px; font-weight:700; cursor:pointer;
+  }
+  .toast{
+    position:fixed; top:14px; inset-inline:0; margin:auto; width:max-content; max-width:90vw; z-index:50;
+    background:var(--ink); color:#fff; padding:11px 20px; border-radius:12px; font-size:13px; font-weight:700;
+    opacity:0; pointer-events:none; transition:opacity .2s;
+  }
+  .toast.show{ opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- ======================= LOGIN ======================= -->
+<div id="loginView">
+  <form class="login-card" id="loginForm">
+    <div class="login-mark">✦ ✦ ✦</div>
+    <h1>بايت هاوس</h1>
+    <p>لوحة تحكم صاحب المطعم — تعديل الأسعار وسعر الصرف والتوفر</p>
+    <input type="password" id="pwInput" placeholder="كلمة السر" autocomplete="current-password">
+    <button type="submit" id="loginBtn">دخول</button>
+    <div class="login-err" id="loginErr"></div>
+  </form>
+</div>
+
+<!-- ======================= PANEL ======================= -->
+<div id="panelView" hidden>
+  <header class="top">
+    <h1><span class="brand-mark">BITE HOUSE</span>لوحة التحكم</h1>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span class="chip" id="stateChip">جارٍ التحميل…</span>
+      <div class="top-actions">
+        <button class="mini-btn" id="reloadBtn" title="جلب آخر نسخة محفوظة">↺ آخر نسخة</button>
+        <button class="mini-btn" id="logoutBtn">خروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- سعر الصرف -->
+    <div class="card rate-card">
+      <div class="lbl">سعر صرف الدولار
+        <small>كم ليرة سورية تساوي 1 دولار؟ الزبون يشوف النتيجة فوراً عند تبديل العملة ↺</small>
+      </div>
+      <input type="number" id="rateInput" min="1" step="1" inputmode="numeric">
+      <span class="rate-unit">ل.س / 1 $</span>
+    </div>
+
+    <input type="search" id="search" placeholder="🔍 ابحث عن طبق… (اسم عربي أو إنجليزي)">
+
+    <div id="cats"></div>
+  </main>
+
+  <div class="save-bar">
+    <button id="saveBtn">💾 حفظ ونشر</button>
+    <p class="save-note" id="saveNote"></p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+const BACKEND = 'https://0eannhpvg2-8791.hosted.obvious.ai';   // filled at deploy time
+const MENU_URL = 'index.html';
+
+let TOKEN = sessionStorage.getItem('bh_token') || '';
+let SHA = null, DATA = null, DIRTY = false, SAVING = false;
+
+const $ = id => document.getElementById(id);
+const chip = $('stateChip'), note = $('saveNote');
+
+function setChip(txt, cls){ chip.textContent = txt; chip.className = 'chip' + (cls ? ' ' + cls : ''); }
+function toast(msg){ const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2200); }
+
+async function api(path, opts = {}){
+  const r = await fetch(BACKEND + path, {
+    ...opts,
+    headers: { 'Content-Type': 'application/json', ...(TOKEN ? { 'Authorization': 'Bearer ' + TOKEN } : {}), ...(opts.headers || {}) },
+  });
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 401 && !opts.noKick) { logout(); throw new Error(j.error || 'انتهت الجلسة'); }
+  if (!r.ok) throw new Error(j.error || ('خطأ ' + r.status));
+  return j;
+}
+
+/* ---------------- auth ---------------- */
+function logout(){ sessionStorage.removeItem('bh_token'); TOKEN = ''; $('panelView').hidden = true; $('loginView').style.display = 'flex'; }
+
+$('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  $('loginBtn').disabled = true; $('loginErr').textContent = '';
+  try {
+    const j = await api('/api/login', { method: 'POST', body: JSON.stringify({ password: $('pwInput').value }), noKick: true });
+    TOKEN = j.token; sessionStorage.setItem('bh_token', TOKEN);
+    $('pwInput').value = '';
+    $('loginView').style.display = 'none'; $('panelView').hidden = false;
+    await loadMenu();
+  } catch (err) { $('loginErr').textContent = err.message || 'تعذر الدخول'; }
+  $('loginBtn').disabled = false;
+});
+$('logoutBtn').addEventListener('click', logout);
+
+/* ---------------- load + render ---------------- */
+async function loadMenu(){
+  setChip('جارٍ التحميل…');
+  try {
+    const j = await api('/api/menu');
+    SHA = j.sha; DATA = j.data; DIRTY = false;
+    $('rateInput').value = DATA.settings.exchange_rate_syp_per_usd;
+    renderCats();
+    setChip('محفوظ ✓');
+  } catch (e) { setChip('خطأ بالتحميل'); note.textContent = e.message; note.className = 'save-note err'; }
+}
+
+function renderCats(){
+  const host = $('cats'); host.textContent = '';
+  let first = true;
+  for (const [ckey, cat] of Object.entries(DATA.menu)) {
+    const d = document.createElement('details'); d.className = 'cat'; d.dataset.cat = ckey;
+    if (first) { d.open = true; first = false; }
+    const s = document.createElement('summary');
+    const hidCount = cat.items.filter(i => i.hidden).length;
+    s.innerHTML = `<span class="ico">${cat.icon || '🍽️'}</span><span>${cat.label}</span>` +
+      (hidCount ? `<span class="hid">${hidCount} غير متوفر</span>` : '') +
+      `<span class="cnt">${cat.items.length}</span><span class="arr">◀</span>`;
+    d.appendChild(s);
+
+    for (const it of cat.items) d.appendChild(itemRow(ckey, it));
+    host.appendChild(d);
+  }
+}
+
+function itemRow(ckey, it){
+  const row = document.createElement('div');
+  row.className = 'item' + (it.hidden ? ' off' : '');
+  row.dataset.key = it.key;
+
+  const main = document.createElement('div'); main.className = 'item-main';
+
+  const cAr = document.createElement('div'); cAr.className = 'name-ar';
+  cAr.innerHTML = '<span class="lbl-mini">الاسم (عربي)</span>';
+  const inAr = document.createElement('input'); inAr.type = 'text'; inAr.className = 'txt'; inAr.value = it.name;
+  inAr.addEventListener('input', () => { it.name = inAr.value; markDirty(); });
+  cAr.appendChild(inAr);
+
+  const cEn = document.createElement('div'); cEn.className = 'name-en';
+  cEn.innerHTML = '<span class="lbl-mini">Name (English)</span>';
+  const inEn = document.createElement('input'); inEn.type = 'text'; inEn.className = 'txt'; inEn.value = it.name_en || ''; inEn.dir = 'ltr';
+  inEn.addEventListener('input', () => { it.name_en = inEn.value; markDirty(); });
+  cEn.appendChild(inEn);
+
+  const cPr = document.createElement('div'); cPr.className = 'price-wrap';
+  cPr.innerHTML = '<div><span class="lbl-mini">السعر (ل.س)</span></div>';
+  const inPr = document.createElement('input'); inPr.type = 'number'; inPr.className = 'price'; inPr.min = '0'; inPr.step = '1'; inPr.inputMode = 'numeric'; inPr.value = it.price;
+  inPr.addEventListener('input', () => { it.price = inPr.value === '' ? 0 : Number(inPr.value); markDirty(); });
+  cPr.appendChild(inPr);
+  cPr.insertAdjacentHTML('beforeend', '<span class="cur">ل.س</span>');
+
+  const cAv = document.createElement('div');
+  cAv.innerHTML = `<label class="avail ${it.hidden ? 'off' : 'on'}">
+      <input type="checkbox" ${it.hidden ? '' : 'checked'}>
+      <span class="sw"></span><span class="sw-txt">${it.hidden ? 'غير متوفر' : 'متوفر'}</span>
+    </label> ${it.hidden ? '<span class="off-badge">مخفي عن الزبائن</span>' : ''}`;
+  const cb = cAv.querySelector('input');
+  cb.addEventListener('change', () => {
+    it.hidden = !cb.checked;
+    row.classList.toggle('off', it.hidden);
+    cAv.querySelector('.avail').className = 'avail ' + (it.hidden ? 'off' : 'on');
+    cAv.querySelector('.sw-txt').textContent = it.hidden ? 'غير متوفر' : 'متوفر';
+    const ob = cAv.querySelector('.off-badge');
+    if (it.hidden && !ob) cAv.insertAdjacentHTML('beforeend', '<span class="off-badge">مخفي عن الزبائن</span>');
+    if (!it.hidden && ob) ob.remove();
+    markDirty();
+  });
+
+  main.append(cAr, cEn, cPr, cAv);
+  row.appendChild(main);
+  return row;
+}
+
+/* ---------------- edits ---------------- */
+function markDirty(){ DIRTY = true; setChip('● تعديلات غير محفوظة', 'dirty'); }
+
+$('rateInput').addEventListener('input', () => {
+  if (!DATA) return;
+  DATA.settings.exchange_rate_syp_per_usd = Number($('rateInput').value) || DATA.settings.exchange_rate_syp_per_usd;
+  markDirty();
+});
+
+/* search */
+$('search').addEventListener('input', () => {
+  const q = $('search').value.trim().toLowerCase();
+  document.querySelectorAll('details.cat').forEach(cat => {
+    let any = false;
+    cat.querySelectorAll('.item').forEach(row => {
+      const key = row.dataset.key.toLowerCase();
+      const ar = row.querySelector('.name-ar input').value.toLowerCase();
+      const en = row.querySelector('.name-en input').value.toLowerCase();
+      const hit = !q || ar.includes(q) || en.includes(q) || key.includes(q);
+      row.style.display = hit ? '' : 'none';
+      if (hit) any = true;
+    });
+    cat.style.display = any ? '' : 'none';
+  });
+});
+
+/* reload */
+$('reloadBtn').addEventListener('click', () => {
+  if (DIRTY && !confirm('عندك تعديلات غير محفوظة — تحميل آخر نسخة رح يمسحها. نكمل؟')) return;
+  loadMenu();
+});
+
+/* ---------------- save + deploy poll ---------------- */
+$('saveBtn').addEventListener('click', async () => {
+  if (SAVING || !DATA) return;
+  SAVING = true; $('saveBtn').disabled = true;
+  note.className = 'save-note'; 
+  try {
+    setChip('جارٍ الحفظ…', 'saving'); note.textContent = 'جارٍ الحفظ…';
+    const j = await api('/api/save', { method: 'POST', body: JSON.stringify({ sha: SHA, data: DATA }) });
+    SHA = j.sha; DIRTY = false;
+    setChip('جارٍ النشر…', 'saving');
+    note.textContent = 'انحفظ ✓ — جارٍ نشر القائمة الحية… (عادة دقيقة)';
+    const t0 = Date.now();
+    while (Date.now() - t0 < 180000) {
+      await new Promise(r => setTimeout(r, 5000));
+      try {
+        const dep = await api('/api/deploy');
+        if (dep.status === 'built' && new Date(dep.updated).getTime() > t0 - 30000) break;
+        if (dep.status === 'errored') throw new Error('فشل النشر عند GitHub — جرب حفظ من جديد');
+      } catch (e) { if (String(e.message).includes('فشل النشر')) throw e; }
+    }
+    setChip('محفوظ ✓', 'ok');
+    note.className = 'save-note ok';
+    note.textContent = '✅ تم النشر — الزبائن بيشوفوا التحديث هلق';
+    toast('تم الحفظ والنشر ✓');
+  } catch (e) {
+    note.className = 'save-note err'; note.textContent = e.message;
+    setChip(DIRTY ? '● تعديلات غير محفوظة' : 'محفوظ ✓', DIRTY ? 'dirty' : '');
+  }
+  SAVING = false; $('saveBtn').disabled = false;
+});
+
+/* auto-resume session */
+(async function boot(){
+  if (!TOKEN) return;
+  try { await api('/api/menu', { noKick: true }); $('loginView').style.display = 'none'; $('panelView').hidden = false; await loadMenu(); }
+  catch (_) { logout(); }
+})();
+</script>
+</body>
+</html>
