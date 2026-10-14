@@ -84,6 +84,15 @@
           "price": 450000,
           "offer": true,
           "hidden": false
+        },
+        {
+          "key": "item-mv7jgdfd",
+          "name": "هديل",
+          "name_en": "Hadeel",
+          "desc": "",
+          "desc_en": "",
+          "price": 100000,
+          "hidden": false
         }
       ]
     },
