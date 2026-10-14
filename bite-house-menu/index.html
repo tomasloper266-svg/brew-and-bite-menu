@@ -582,13 +582,13 @@ function formatPrice(sypPrice){
     const usdValue = Number(sypPrice) / rate;
     return '$' + usdValue.toFixed(2);
   }
-  return Number(sypPrice).toLocaleString('en-US') + ' ل.س';
+  return Number(sypPrice).toLocaleString('en-US') + ' ' + (lang === 'ar' ? 'ل.س' : 'SYP');
 }
 
 function toggleCurrency(){
   currency = currency === 'usd' ? 'syp' : 'usd';
   const btn = document.getElementById('currencyToggle');
-  btn.innerText = currency === 'usd' ? '🇺🇸 USD' : '🇸🇾 ل.س';
+  btn.innerText = currency === 'usd' ? '🇺🇸 USD' : '🇸🇾 ' + (lang === 'ar' ? 'ل.س' : 'SYP');
   try{ localStorage.setItem('menu_currency', currency); }catch(e){}
   renderMenu();
 }
@@ -658,6 +658,7 @@ function renderStaticText(){
   document.getElementById('footerAddress').innerText = s.footerAddress;
   document.getElementById('footerHoursNote').innerText = s.brandTagline;
   document.getElementById('qrNote').innerText = s.qrNote;
+  document.getElementById('currencyToggle').innerText = currency === 'usd' ? '🇺🇸 USD' : '🇸🇾 ' + (lang === 'ar' ? 'ل.س' : 'SYP');
 }
 
 function renderTabs(){
@@ -819,7 +820,6 @@ async function loadMenu(){
     const savedCurrency = localStorage.getItem('menu_currency');
     if(savedCurrency === 'usd' || savedCurrency === 'syp') currency = savedCurrency;
   }catch(e){}
-  document.getElementById('currencyToggle').innerText = currency === 'usd' ? '🇺🇸 USD' : '🇸🇾 ل.س';
   renderStaticText();
   renderTabs();
   renderMenu();
