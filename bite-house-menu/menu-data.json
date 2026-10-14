@@ -1507,7 +1507,7 @@
     "default-item": "img/hero-feast.webp"
   },
   "settings": {
-    "exchange_rate_syp_per_usd": 132,
+    "exchange_rate_syp_per_usd": 130,
     "default_currency": "syp",
     "note": "أسعار مقترحة بالليرة السورية الجديدة — قابلة للتعديل. Suggested prices in new-SYP denomination — editable.",
     "note_en": "Suggested prices in the new Syrian pound denomination — editable."
