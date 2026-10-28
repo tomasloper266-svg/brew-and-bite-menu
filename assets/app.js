@@ -150,7 +150,7 @@ function cardHtml(item, idx) {
 function paintHero() {
   const r = state.data?.settings?.restaurant || {};
   const L = state.lang === 'en';
-  const brand = L ? (r.name_en || r.name_ar || 'Brew & Bite') : (r.name_ar || r.name_en || 'برو أند بايت');
+  const brand = r.name_en || r.name_ar || 'Brew & Bite';
   const latin = (r.name_en || 'Brew & Bite').trim();
   $('#hero-mark').textContent = latin.charAt(0).toUpperCase();
   $('#brand-mark').textContent = latin.charAt(0).toUpperCase();
@@ -249,7 +249,7 @@ function paintFooter() {
   const c = state.data?.settings?.contact || {};
   const h = state.data?.settings?.hours || {};
   const L = state.lang === 'en';
-  const brand = L ? (r.name_en || r.name_ar || 'Brew & Bite') : (r.name_ar || r.name_en || 'برو أند بايت');
+  const brand = r.name_en || r.name_ar || 'Brew & Bite';
   $('#brand-name').textContent = brand;
   $('#foot-phone').textContent = c.phone || '';
   $('#foot-loc').textContent = L ? (r.location_en || r.location_ar || '') : (r.location_ar || r.location_en || '');
