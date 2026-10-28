@@ -20,7 +20,9 @@ const I18N = {
     empty: 'لا توجد منتجات مطابقة.', offerBadge: 'عرض اليوم',
     popularBadge: 'الأكثر طلباً', contact: 'تواصل', hoursTitle: 'ساعات العمل',
     links: 'روابط', hoursText: 'يومياً من', until: 'حتى', footNote: 'مينيو إلكتروني',
-    results: 'نتيجة', catLabel: 'القسم'
+    results: 'نتيجة', catLabel: 'القسم',
+    explore: 'استعرض المنيو', popular: 'الأقسام الشائعة',
+    call: 'اتصل بنا', whatsapp: 'واتساب'
   },
   en: {
     search: 'Search products', all: 'All', title: 'All Products',
@@ -33,7 +35,9 @@ const I18N = {
     empty: 'No matching products.', offerBadge: "Today's Offer",
     popularBadge: 'Most Popular', contact: 'Contact', hoursTitle: 'Working Hours',
     links: 'Links', hoursText: 'Daily from', until: 'until', footNote: 'Digital menu',
-    results: 'results', catLabel: 'Category'
+    results: 'results', catLabel: 'Category',
+    explore: 'Explore Menu', popular: 'Popular Categories',
+    call: 'Call Us', whatsapp: 'WhatsApp'
   }
 };
 
@@ -127,28 +131,59 @@ function nutritionHtml(item) {
 
 function cardHtml(item, idx) {
   const src = imgSrc(item);
-  const topline = [];
-  if (item.offer) topline.push(`<span class="bb-offer-badge">${t('offerBadge')}</span>`);
-  if (item.popular) topline.push(`<span class="bb-popular-badge">${t('popularBadge')}</span>`);
   return `
-    <article class="catalog-card product-search-item" data-title="${esc(pick(item, 'name'))}" data-idx="${idx}">
+    <article class="catalog-card product-search-item" data-title="${esc(pick(item, 'name'))}" data-detail="${idx}" role="button" tabindex="0" aria-label="${esc(pick(item, 'name'))}">
       <div class="catalog-card-media">
         ${src ? `<img loading="lazy" src="${esc(src)}" alt="${esc(pick(item, 'name'))}">`
               : '<div class="bb-noimg"></div>'}
       </div>
       <div class="catalog-card-body">
-        <div class="catalog-card-topline">${topline.join('')}</div>
         <h3>${esc(pick(item, 'name'))}</h3>
-        ${nutritionHtml(item)}
         <div class="popular-price">${fmtPrice(item.price)}</div>
-        <a class="add-to-cart-btn" href="#" data-detail="${idx}">${t('details')}</a>
       </div>
     </article>`;
+}
+
+function paintHero() {
+  const r = state.data?.settings?.restaurant || {};
+  const L = state.lang === 'en';
+  const brand = L ? (r.name_en || r.name_ar || 'Brew & Bite') : (r.name_ar || r.name_en || 'برو أند بايت');
+  const latin = (r.name_en || 'Brew & Bite').trim();
+  $('#hero-mark').textContent = latin.charAt(0).toUpperCase();
+  $('#brand-mark').textContent = latin.charAt(0).toUpperCase();
+  $('#hero-title').textContent = brand;
+  $('#hero-sub').textContent = L ? (r.desc_en || r.desc_ar || '') : (r.desc_ar || r.desc_en || '');
+  const tagline = (L ? (r.tagline_en || r.tagline_ar || '') : (r.tagline_ar || r.tagline_en || ''));
+  $('#hero-chips').innerHTML = tagline
+    ? tagline.split(/\s*[·•،,]\s*/).filter(Boolean).map((x) => `<span class="bb-hero-chip">${esc(x.trim())}</span>`).join('')
+    : '';
+  $('#hero-cta').textContent = t('explore');
+}
+
+function paintPopular() {
+  $('#popular-title').textContent = t('popular');
+  const ranked = state.cats
+    .map((c) => ({ c, n: state.items.filter((it) => it.catKey === c.key).length }))
+    .filter((x) => x.n > 0)
+    .sort((a, b) => b.n - a.n)
+    .slice(0, 8);
+  $('#popular-grid').innerHTML = ranked.map(({ c, n }) => {
+    const first = c.items.find((it) => !it.hidden && (it.image || (state.data?.images || {})[it.key]));
+    const src = first ? imgSrc(first) : '';
+    return `
+      <a class="bb-cat-tile" href="#" data-cat="${esc(c.key)}">
+        <span class="bb-cat-tile-media">${src ? `<img loading="lazy" src="${esc(src)}" alt="">` : ''}
+          <span class="bb-cat-tile-count">${n}</span>
+        </span>
+        <span class="bb-cat-tile-name">${c.icon ? esc(c.icon) + ' ' : ''}${esc(state.lang === 'en' ? c.label_en : c.label)}</span>
+      </a>`;
+  }).join('');
 }
 
 function paintGrid() {
   const list = visibleItems();
   $('#shop-grid').innerHTML = list.map(cardHtml).join('');
+  $('#shop-empty').textContent = t('empty');
   $('#shop-empty').hidden = list.length > 0;
   if (state.q.trim()) {
     $('#shop-title').textContent = t('menu');
@@ -203,6 +238,13 @@ function paintFooter() {
     ? `${t('hoursText')} ${h.open_morning || ''} ${t('until')} ${h.close_evening || ''}` : '';
   $('#foot-link-home').textContent = t('home');
   $('#foot-link-admin').textContent = t('panel');
+  // أزرار التواصل (اتصال + واتساب) إذا في رقم
+  const phone = (c.phone || '').replace(/[^\d+]/g, '');
+  const wa = phone ? (phone.startsWith('+') ? phone.slice(1) : (phone.startsWith('0') ? '963' + phone.slice(1) : phone)) : '';
+  $('#foot-social').innerHTML = phone
+    ? `<a class="bb-foot-btn primary" href="tel:${esc(phone)}"><i class="bx bx-phone"></i>${t('call')}</a>`
+      + (wa ? `<a class="bb-foot-btn outline" href="https://wa.me/${esc(wa)}" target="_blank" rel="noopener"><i class="bx bxl-whatsapp"></i>${t('whatsapp')}</a>` : '')
+    : '';
   $('#foot-links-title').textContent = t('links');
   $('#foot-contact-title').textContent = t('contact');
   $('#foot-hours-title').textContent = t('hoursTitle');
@@ -219,6 +261,8 @@ function paintFooter() {
 
 function paintAll() {
   paintFooter();
+  paintHero();
+  paintPopular();
   paintChips();
   paintSidebar();
   paintGrid();
@@ -230,6 +274,10 @@ function openDetails(item) {
   $('#detail-img').src = imgSrc(item) || '';
   $('#detail-img').style.display = imgSrc(item) ? '' : 'none';
   $('#detail-cat').textContent = (state.lang === 'en' ? item.catLabelEn : item.catLabel) || t('catLabel');
+  const badges = [];
+  if (item.offer) badges.push(`<span class="bb-offer-badge">${t('offerBadge')}</span>`);
+  if (item.popular) badges.push(`<span class="bb-popular-badge">${t('popularBadge')}</span>`);
+  $('#detail-badges').innerHTML = badges.join('');
   $('#detail-name').textContent = pick(item, 'name');
   $('#detail-nutrition').innerHTML = nutritionHtml(item) || '';
   $('#detail-desc').textContent = pick(item, 'desc');
@@ -299,7 +347,7 @@ function wire() {
       state.q = ''; $('#search-bar').value = '';
       closeDrawer();
       paintChips(); paintSidebar(); paintGrid();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('menu-anchor').scrollIntoView({ behavior: 'smooth' });
       return;
     }
     const sortLink = e.target.closest('[data-sort]');
@@ -308,7 +356,7 @@ function wire() {
       state.sort = sortLink.dataset.sort;
       closeDrawer();
       paintSidebar(); paintGrid();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('menu-anchor').scrollIntoView({ behavior: 'smooth' });
       return;
     }
     const detail = e.target.closest('[data-detail]');
@@ -322,6 +370,10 @@ function wire() {
   });
 
   $('#detail-close').addEventListener('click', closeDetails);
+  $('#hero-cta').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('menu-anchor').scrollIntoView({ behavior: 'smooth' });
+  });
   $('#details-modal').addEventListener('click', (e) => {
     if (e.target.id === 'details-modal') closeDetails();
   });
