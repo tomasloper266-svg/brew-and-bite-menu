@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Aref+Ruqaa:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/store.css">
-  <link rel="stylesheet" href="assets/bb.css">
+  <link rel="stylesheet" href="assets/store.css?v=3">
+  <link rel="stylesheet" href="assets/bb.css?v=3">
 </head>
 <body class="storefront-body">
 
@@ -38,13 +38,10 @@
         <button type="button" class="header-icon-btn bb-mini-pill" id="lang-toggle" title="English">EN</button>
       </div>
     </div>
-    <div class="store-search-bar">
-      <i class="bx bx-search"></i>
-      <input type="text" id="search-bar" placeholder="ابحث داخل المنتجات" autocomplete="off">
-    </div>
   </header>
 
   <main class="shop-page">
+    <div id="view-home">
     <!-- الهيرو (مطابق للموقع القديم) -->
     <section class="bb-hero" id="bb-hero">
       <div class="bb-hero-mark" id="hero-mark" aria-hidden="true">B</div>
@@ -59,7 +56,9 @@
       <h2 class="section-title" id="popular-title">الأقسام الشائعة</h2>
       <div class="bb-popular-grid" id="popular-grid"></div>
     </section>
+    </div>
 
+    <div id="view-shop" hidden>
     <section class="shop-shell" id="menu-anchor">
       <nav class="breadcrumb-nav" aria-label="breadcrumb">
         <a href="./" id="crumb-home">الرئيسية</a>
@@ -74,13 +73,20 @@
         </div>
       </div>
 
-      <div class="shop-filter-bar">
-        <div class="shop-filter-scroll" id="category-chips"></div>
+      <div class="shop-toolbar">
+        <div class="store-search-bar">
+          <i class="bx bx-search"></i>
+          <input type="text" id="search-bar" placeholder="ابحث عن شئ..." autocomplete="off">
+        </div>
+        <div class="shop-filter-bar">
+          <div class="shop-filter-scroll" id="category-chips"></div>
+        </div>
       </div>
 
       <div class="shop-grid" id="shop-grid"></div>
       <div class="shop-empty" id="shop-empty" hidden>لا توجد منتجات مطابقة.</div>
     </section>
+    </div>
   </main>
 
   <!-- درج الأقسام -->
@@ -153,6 +159,6 @@
     </div>
   </div>
 
-  <script src="assets/app.js"></script>
+  <script src="assets/app.js?v=3"></script>
 </body>
 </html>

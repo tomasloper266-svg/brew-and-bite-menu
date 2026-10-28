@@ -314,7 +314,19 @@ a { color: inherit; text-decoration: none; }
 .shop-shell-head p { margin: 0 0 14px; color: var(--ink-soft); font-size: 13.5px; font-weight: 600; }
 
 /* شريحة أقسام */
-.shop-filter-bar { margin-bottom: 16px; }
+.shop-toolbar {
+  position: sticky;
+  top: 58px;
+  z-index: 40;
+  background: rgba(247, 241, 230, 0.97);
+  margin: 0 -16px 14px;
+  padding: 10px 16px 6px;
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 8px 16px -14px rgba(90, 60, 20, 0.5);
+}
+.shop-toolbar .store-search-bar { margin: 0 0 8px; }
+
+.shop-filter-bar { margin-bottom: 0; }
 .shop-filter-scroll {
   display: flex; gap: 8px;
   overflow-x: auto;
@@ -659,6 +671,7 @@ body.sidebar-visible { overflow: hidden; }
   .bb-popular-grid { grid-template-columns: repeat(3, 1fr); }
   .shop-shell, .store-header-bar, .store-search-bar, .store-footer-inner, .store-footer-bottom, .bb-popular { padding-inline: 20px; }
   .shop-shell { padding-inline: 20px; }
+  .shop-toolbar { margin-inline: -20px; padding-inline: 20px; }
 }
 @media (min-width: 980px) {
   .shop-grid { grid-template-columns: repeat(4, 1fr); }
