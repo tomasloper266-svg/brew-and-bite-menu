@@ -1,5 +1,146 @@
 <!DOCTYPE html>
-<html>
-<head><meta http-equiv="refresh" content="0; url=bite-house-menu/"></head>
-<body>Redirecting to menu... <a href="bite-house-menu/">Click here</a></body>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="برو أند بايت — المينيو الإلكتروني: قهوة مختصة، وجبات وأطباق طازجة، وحلويات.">
+  <meta name="theme-color" content="#0f172a">
+  <title>برو أند بايت — المينيو</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/store.css">
+  <link rel="stylesheet" href="assets/bb.css">
+</head>
+<body class="storefront-body">
+
+  <!-- شاشة التحميل -->
+  <div class="loading-overlay is-open" id="loading-overlay" role="status" aria-live="polite">
+    <div class="loading-card">
+      <span class="loading-spinner" aria-hidden="true"></span>
+      <p>جاري التحميل...</p>
+    </div>
+  </div>
+
+  <!-- الهيدر -->
+  <header class="store-header" id="store-header">
+    <div class="store-header-bar">
+      <button type="button" class="header-icon-btn" id="sidebar-open" aria-label="الأقسام">
+        <i class="bx bx-menu-alt-right"></i>
+      </button>
+      <a class="store-logo-wrap" href="./" id="logo-link" aria-label="برو أند بايت">
+        <span class="brand-text" id="brand-name">برو أند بايت</span>
+      </a>
+      <div class="bb-pill-group">
+        <button type="button" class="header-icon-btn bb-mini-pill" id="currency-toggle" title="تبديل العملة">ل.س</button>
+        <button type="button" class="header-icon-btn bb-mini-pill" id="lang-toggle" title="English">EN</button>
+      </div>
+    </div>
+    <div class="store-search-bar">
+      <i class="bx bx-search"></i>
+      <input type="text" id="search-bar" placeholder="ابحث داخل المنتجات" autocomplete="off">
+    </div>
+  </header>
+
+  <main class="shop-page">
+    <section class="shop-shell">
+      <nav class="breadcrumb-nav" aria-label="breadcrumb">
+        <a href="./" id="crumb-home">الرئيسية</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current" id="crumb-current">المنيو</span>
+      </nav>
+
+      <div class="shop-shell-head">
+        <div>
+          <h1 id="shop-title">كل المنتجات</h1>
+          <p id="shop-sub">كل المنتجات المتاحة حالياً.</p>
+        </div>
+      </div>
+
+      <div class="shop-filter-bar">
+        <div class="shop-filter-scroll" id="category-chips"></div>
+      </div>
+
+      <div class="shop-grid" id="shop-grid"></div>
+      <div class="shop-empty" id="shop-empty" hidden>لا توجد منتجات مطابقة.</div>
+    </section>
+  </main>
+
+  <!-- درج الأقسام -->
+  <div class="store-sidebar-backdrop" id="sidebar-backdrop"></div>
+  <aside class="store-sidebar" id="store-sidebar" aria-label="الأقسام والترتيب">
+    <div class="store-sidebar-header">
+      <h3 id="sidebar-title">الأقسام</h3>
+      <button type="button" class="sidebar-close" id="sidebar-close" aria-label="إغلاق">
+        <i class="bx bx-x"></i>
+      </button>
+    </div>
+    <div class="store-sidebar-body">
+      <div class="sidebar-group">
+        <button type="button" class="sidebar-group-toggle" id="sort-toggle">
+          <span id="sort-title">الترتيب</span><i class="bx bx-chevron-down"></i>
+        </button>
+        <div class="sidebar-group-panel is-open" id="sort-panel"></div>
+      </div>
+      <div class="sidebar-group">
+        <button type="button" class="sidebar-group-toggle" id="cats-toggle">
+          <span id="cats-title">الأقسام</span><i class="bx bx-chevron-down"></i>
+        </button>
+        <div class="sidebar-group-panel is-open" id="cat-links"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- الفوتر -->
+  <footer class="store-footer">
+    <div class="store-footer-inner">
+      <div class="store-footer-brand">
+        <div class="store-footer-logo">
+          <span class="bb-foot-logo-text" id="foot-logo-text">برو أند بايت</span>
+        </div>
+        <h4 class="store-footer-title" id="foot-brand">برو أند بايت</h4>
+        <p id="foot-desc">مينيو إلكتروني.</p>
+        <div class="store-footer-social" id="foot-social"></div>
+      </div>
+      <div class="store-footer-links" id="foot-links">
+        <div>
+          <h4 id="foot-links-title">روابط</h4>
+          <a href="./" id="foot-link-home">الرئيسية</a>
+          <a href="admin/" id="foot-link-admin">لوحة التحكم</a>
+        </div>
+        <div class="store-footer-contact">
+          <h4 id="foot-contact-title">تواصل</h4>
+          <p><i class="bx bx-phone"></i><span id="foot-phone" dir="ltr"></span></p>
+          <p><i class="bx bx-map"></i><span id="foot-loc"></span></p>
+        </div>
+        <div class="store-footer-contact">
+          <h4 id="foot-hours-title">ساعات العمل</h4>
+          <p><i class="bx bx-time"></i><span id="foot-hours"></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="store-footer-bottom">
+      <span id="foot-copy">© 2026 برو أند بايت</span>
+      <span id="foot-note">مينيو إلكتروني</span>
+    </div>
+  </footer>
+
+  <!-- مودال التفاصيل -->
+  <div class="modal-backdrop" id="details-modal" hidden>
+    <div class="modal-box bb-detail-box">
+      <div class="bb-detail-media-wrap"><img class="bb-detail-media" id="detail-img" alt=""></div>
+      <div class="bb-detail-cat" id="detail-cat"></div>
+      <h3 class="modal-title" id="detail-name"></h3>
+      <div class="cart-attrs-wrap product-nutrition-badges" id="detail-nutrition"></div>
+      <p class="bb-detail-desc" id="detail-desc"></p>
+      <div class="bb-detail-price" id="detail-price"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn-soft" id="detail-close">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
 </html>
