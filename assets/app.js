@@ -11,7 +11,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
 const I18N = {
   ar: {
     search: 'ابحث داخل المنتجات', all: 'الكل', title: 'كل المنتجات',
-    subAll: 'كل المنتجات المتاحة حالياً.', subCat: 'أقسامنا ونمنتجاتنا من قسم',
+    subAll: 'كل المنتجات المتاحة حالياً.', subCat: 'أصناف قسم',
     sortTitle: 'الترتيب', catsTitle: 'الأقسام', sidebarTitle: 'الأقسام',
     newest: 'الأحدث', oldest: 'الأقدم', priceAsc: 'من الأقل سعراً',
     priceDesc: 'من الأعلى سعراً', onlyOffers: 'العروض المميزة',
@@ -26,7 +26,7 @@ const I18N = {
   },
   en: {
     search: 'Search products', all: 'All', title: 'All Products',
-    subAll: 'Everything currently available.', subCat: 'Our selection from',
+    subAll: 'Everything currently available.', subCat: 'Items in',
     sortTitle: 'Sort', catsTitle: 'Categories', sidebarTitle: 'Categories',
     newest: 'Newest', oldest: 'Oldest', priceAsc: 'Price: Low to High',
     priceDesc: 'Price: High to Low', onlyOffers: 'Special Offers',
