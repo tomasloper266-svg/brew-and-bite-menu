@@ -229,9 +229,6 @@ function paintFooter() {
   const L = state.lang === 'en';
   const brand = L ? (r.name_en || r.name_ar || 'Brew & Bite') : (r.name_ar || r.name_en || 'برو أند بايت');
   $('#brand-name').textContent = brand;
-  $('#foot-logo-text').textContent = brand;
-  $('#foot-brand').textContent = brand;
-  $('#foot-desc').textContent = L ? (r.desc_en || r.desc_ar || '') : (r.desc_ar || r.desc_en || '');
   $('#foot-phone').textContent = c.phone || '';
   $('#foot-loc').textContent = L ? (r.location_en || r.location_ar || '') : (r.location_ar || r.location_en || '');
   $('#foot-hours').textContent = (h.open_morning || h.close_evening)
