@@ -326,7 +326,20 @@ a { color: inherit; text-decoration: none; }
 }
 .shop-toolbar .store-search-bar { margin: 0 0 8px; }
 
-.shop-filter-bar { margin-bottom: 0; }
+.shop-filter-bar { margin-bottom: 0; display: flex; align-items: center; gap: 6px; }
+.shop-filter-bar .shop-filter-scroll { flex: 1; min-width: 0; }
+.shop-chip-arrow {
+  flex: none; width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--line); border-radius: 999px;
+  background: var(--paper); color: var(--ink-soft);
+  font-size: 19px; cursor: pointer; padding: 0;
+  transition: all .2s;
+}
+.shop-chip-arrow:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.shop-chip-arrow:active { transform: scale(.92); }
+.shop-chip-arrow[hidden] { display: none; }
+html[dir="ltr"] .shop-chip-arrow i { transform: rotate(180deg); }
 .shop-filter-scroll {
   display: flex; gap: 8px;
   overflow-x: auto;

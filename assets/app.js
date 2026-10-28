@@ -210,6 +210,25 @@ function paintChips() {
   box.innerHTML = chips.join('');
   const act = box.querySelector('.shop-filter-chip.is-active');
   if (act) act.scrollIntoView({ block: 'nearest', inline: 'center' });
+  paintChipsArrows();
+}
+
+function scrollChips(dir) {
+  const box = $('#category-chips');
+  const delta = dir * box.clientWidth * 0.7;
+  const rtl = (document.documentElement.dir || 'ltr') === 'rtl';
+  box.scrollTo({ left: rtl ? box.scrollLeft - delta : box.scrollLeft + delta, behavior: 'smooth' });
+}
+
+function paintChipsArrows() {
+  const box = $('#category-chips');
+  if (!box) return;
+  const prev = $('#chips-prev'), next = $('#chips-next');
+  if (!prev || !next) return;
+  const max = box.scrollWidth - box.clientWidth;
+  const pos = Math.abs(box.scrollLeft);
+  prev.hidden = max <= 4 || pos <= 2;
+  next.hidden = max <= 4 || pos >= max - 2;
 }
 
 function paintSidebar() {
@@ -365,6 +384,11 @@ function wire() {
     clearTimeout(debounce);
     debounce = setTimeout(() => { state.q = e.target.value; paintChips(); paintGrid(); }, 180);
   });
+
+  $('#chips-prev').addEventListener('click', () => scrollChips(-1));
+  $('#chips-next').addEventListener('click', () => scrollChips(1));
+  $('#category-chips').addEventListener('scroll', paintChipsArrows, { passive: true });
+  window.addEventListener('resize', paintChipsArrows);
 
   document.addEventListener('click', (e) => {
     const chip = e.target.closest('[data-cat]');
