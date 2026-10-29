@@ -276,6 +276,7 @@ function paintFooter() {
   $('#search-bar').placeholder = t('search');
   $('#detail-close').textContent = t('close');
   $('#crumb-home').textContent = t('home');
+  $('#back-home-label').textContent = t('home');
 }
 
 function applyView() {
@@ -285,7 +286,7 @@ function applyView() {
   if (!home) paintGrid();
 }
 
-function openCategory(key) {
+function openCategory(key, opts = {}) {
   state.activeCat = key;
   state.view = 'shop';
   state.q = '';
@@ -294,6 +295,13 @@ function openCategory(key) {
   paintChips();
   paintSidebar();
   document.getElementById('menu-anchor').scrollIntoView({ behavior: 'smooth' });
+  if (!opts.fromHistory) history.pushState({ bb: 'shop', cat: key }, '');
+}
+
+/* الرجوع للرئيسية: عبر سجل المتصفح إذا في مدخل مسجّل، وإلا مباشرة */
+function uiBackHome() {
+  if (history.state && history.state.bb === 'shop') history.back();
+  else goHome();
 }
 
 function goHome() {
@@ -422,8 +430,15 @@ function wire() {
     e.preventDefault();
     document.getElementById('bb-popular').scrollIntoView({ behavior: 'smooth' });
   });
-  $('#crumb-home').addEventListener('click', (e) => { e.preventDefault(); goHome(); });
-  $('#logo-link').addEventListener('click', (e) => { e.preventDefault(); goHome(); });
+  $('#crumb-home').addEventListener('click', (e) => { e.preventDefault(); uiBackHome(); });
+  $('#logo-link').addEventListener('click', (e) => { e.preventDefault(); uiBackHome(); });
+  $('#back-home').addEventListener('click', uiBackHome);
+
+  // زر الرجوع بالمتصفح/الموبايل يرجّع للرئيسية بدل ما يطلّع من الموقع
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.bb === 'shop') openCategory(e.state.cat || 'all', { fromHistory: true });
+    else goHome();
+  });
   $('#details-modal').addEventListener('click', (e) => {
     if (e.target.id === 'details-modal') closeDetails();
   });

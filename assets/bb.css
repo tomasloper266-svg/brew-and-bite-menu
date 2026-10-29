@@ -22,3 +22,20 @@
   display: flex; flex-wrap: wrap; gap: 6px;
   margin: 2px 18px 0;
 }
+
+/* زر الرجوع للرئيسية داخل شريط البحث الثابت (عرض المنيو) */
+.shop-search-row { display: flex; align-items: center; gap: 8px; }
+.shop-search-row .store-search-bar { flex: 1; min-width: 0; margin: 0 0 8px; }
+.bb-back-btn {
+  flex: none; height: 38px; margin-bottom: 8px;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 0 12px; border-radius: 999px;
+  color: var(--accent-deep); background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--line);
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: all .2s;
+}
+.bb-back-btn i { font-size: 19px; }
+.bb-back-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.bb-back-btn:active { transform: scale(.94); }
+[dir="rtl"] .bb-back-btn i { transform: scaleX(-1); }

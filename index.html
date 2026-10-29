@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Aref+Ruqaa:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/store.css?v=6">
-  <link rel="stylesheet" href="assets/bb.css?v=6">
+  <link rel="stylesheet" href="assets/store.css?v=7">
+  <link rel="stylesheet" href="assets/bb.css?v=7">
 </head>
 <body class="storefront-body">
 
@@ -74,9 +74,14 @@
       </div>
 
       <div class="shop-toolbar">
-        <div class="store-search-bar">
-          <i class="bx bx-search"></i>
-          <input type="text" id="search-bar" placeholder="ابحث عن شئ..." autocomplete="off">
+        <div class="shop-search-row">
+          <button type="button" class="bb-back-btn" id="back-home" aria-label="الرجوع للرئيسية">
+            <i class="bx bx-arrow-back"></i><span id="back-home-label">الرئيسية</span>
+          </button>
+          <div class="store-search-bar">
+            <i class="bx bx-search"></i>
+            <input type="text" id="search-bar" placeholder="ابحث عن شئ..." autocomplete="off">
+          </div>
         </div>
         <div class="shop-filter-bar">
           <button class="shop-chip-arrow" id="chips-prev" type="button" aria-label="الأقسام السابقة"><i class="bx bx-chevron-right"></i></button>
@@ -161,6 +166,6 @@
     </div>
   </div>
 
-  <script src="assets/app.js?v=6"></script>
+  <script src="assets/app.js?v=7"></script>
 </body>
 </html>
